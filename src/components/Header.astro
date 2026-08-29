@@ -1,0 +1,32 @@
+---
+const whatsappNumber = import.meta.env.WHATSAPP_NUMBER ?? '5511954346288';
+const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+---
+
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+  <div class="container py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 font-semibold text-brand-600 text-lg">
+      <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-brand-600 text-white">P</span>
+      <span>PraiaDigital</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+      <a href="/sobre" class="hover:text-brand-600">Sobre</a>
+      <a href="/servicos/gestao-aluguel-temporada" class="hover:text-brand-600">Gestão</a>
+      <a href="/servicos/assessoria-imobiliaria" class="hover:text-brand-600">Assessoria</a>
+      <a href="/blog" class="hover:text-brand-600">Conteúdos</a>
+      <a href="/faq" class="hover:text-brand-600">FAQ</a>
+      <a href="/contato" class="hover:text-brand-600">Contato</a>
+    </nav>
+
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener"
+      class="inline-flex items-center gap-2 rounded-md bg-litoral-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-litoral-500"
+    >
+      WhatsApp
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.6-5.2A8.38 8.38 0 0 1 3.5 11.5a8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>
+    </a>
+  </div>
+</header>

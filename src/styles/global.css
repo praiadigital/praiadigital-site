@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body { @apply antialiased text-slate-900 bg-white; }
+  h1,h2,h3,h4,h5,h6 { @apply text-slate-900; }
+  a { @apply text-brand-600 underline-offset-4 hover:underline; }
+  img { @apply max-w-full h-auto; }
+}

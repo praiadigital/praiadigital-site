@@ -1,0 +1,15 @@
+# Anti-cache for all static HTML pages
+# Netlify _headers pattern
+
+/*
+  Cache-Control: no-store, must-revalidate
+
+# Or per-route if you prefer tighter control:
+# /blog.html                     Cache-Control: no-store, must-revalidate
+# /blog/cases.html               Cache-Control: no-store, must-revalidate
+# /hub/ia-corretores-litoral.html Cache-Control: no-store, must-revalidate
+# /servicos/*.html               Cache-Control: no-store, must-revalidate
+# /contato.html                  Cache-Control: no-store, must-revalidate
+# /faq.html                      Cache-Control: no-store, must-revalidate
+# /privacidade.html              Cache-Control: no-store, must-revalidate
+# /sobre.html                    Cache-Control: no-store, must-revalidate

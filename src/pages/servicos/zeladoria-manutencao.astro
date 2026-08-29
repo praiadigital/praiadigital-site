@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+---
+
+<BaseLayout title="Zeladoria e manutenção" description="Zeladoria, manutenção preventiva, suporte local e atendimento emergencial para imóveis no litoral norte de SP.">
+  <section class="border-b border-slate-200">
+    <div class="container py-16">
+      <h1 class="text-3xl font-semibold tracking-tight">Zeladoria e manutenção</h1>
+      <p class="mt-4 max-w-2xl text-slate-600">
+        Suporte local, inspeções, manutenção preventiva e atendimento emergencial para manter o imóvel sempre pronto para receber hóspedes ou compradores.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <article class="rounded-xl border border-slate-200 p-6">
+          <h2 class="text-base font-semibold">Inspeção</h2>
+          <p class="mt-2 text-sm text-slate-600">Verificação periódica com relatório fotográfico.</p>
+        </article>
+        <article class="rounded-xl border border-slate-200 p-6">
+          <h2 class="text-base font-semibold">Preventiva</h2>
+          <p class="mt-2 text-sm text-slate-600">Pintura, hidráulica, elétrica e telhado.</p>
+        </article>
+        <article class="rounded-xl border border-slate-200 p-6">
+          <h2 class="text-base font-semibold">Emergenial</h2>
+          <p class="mt-2 text-sm text-slate-600">Atendimento rápido 7 dias por semana.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-slate-200">
+    <div class="container py-16">
+      <LeadForm />
+    </div>
+  </section>
+</BaseLayout>

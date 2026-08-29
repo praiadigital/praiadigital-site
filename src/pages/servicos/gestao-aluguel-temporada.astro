@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+---
+
+<BaseLayout title="Gestão de aluguel por temporada" description="Gestão profissional de aluguel temporada no litoral norte de SP: canais, reservas, preço e experiência do hóspede.">
+  <section class="border-b border-slate-200">
+    <div class="container py-16">
+      <h1 class="text-3xl font-semibold tracking-tight">Gestão de aluguel por temporada</h1>
+      <p class="mt-4 max-w-2xl text-slate-600">
+        Aumente a receita do seu imóvel com gestão profissional de temporada: anúncios, reservas, precificação, comunicação e operação local.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <article class="rounded-xl border border-slate-200 p-6">
+          <h2 class="text-base font-semibold">Canais</h2>
+          <p class="mt-2 text-sm text-slate-600">Otimização de anúncios, políticas e disponibilidade.</p>
+        </article>
+        <article class="rounded-xl border border-slate-200 p-6">
+          <h2 class="text-base font-semibold">Reservas</h2>
+          <p class="mt-2 text-sm text-slate-600">Check-in, check-out e comunicação com o hóspede.</p>
+        </article>
+        <article class="rounded-xl border border-slate-200 p-6">
+          <h2 class="text-base font-semibold">Precificação</h2>
+          <p class="mt-2 text-sm text-slate-600">Ajuste dinâmico por alta e baixa temporada.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-slate-200">
+    <div class="container py-16">
+      <LeadForm />
+    </div>
+  </section>
+</BaseLayout>

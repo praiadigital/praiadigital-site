@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+import { cidades } from '../data/cidades.ts';
+---
+
+<BaseLayout title="Inbound Marketing para imóveis no litoral" description="PraiaDigital ajuda imobiliárias e proprietários do litoral norte de SP a captar mais leads qualificados com conteúdo, automação e conversão.">
+  <section class="border-b border-slate-200 bg-slate-50">
+    <div class="container py-16 md:py-24">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold text-brand-600">Imóveis no litoral norte de SP</p>
+        <h1 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+          Inbound Marketing que gera visita e venda
+        </h1>
+        <p class="mt-4 text-lg text-slate-600">
+          Conteúdo local, páginas de alta conversão e automações para imóveis de temporada, venda e temporada no litoral norte de São Paulo.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/contato" class="rounded-md bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-brand-700">Falar com especialista</a>
+          <a href="/servicos/gestao-aluguel-temporada" class="rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:border-slate-400">Ver serviços</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-slate-200">
+    <div class="container py-16">
+      <h2 class="text-2xl font-semibold">Resultados em números</h2>
+      <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div class="rounded-xl border border-slate-200 p-6">
+          <p class="text-3xl font-semibold text-brand-600">+170</p>
+          <p class="mt-2 text-sm text-slate-600">Leads qualificados gerados em 30 dias</p>
+        </div>
+        <div class="rounded-xl border border-slate-200 p-6">
+          <p class="text-3xl font-semibold text-brand-600">3.2x</p>
+          <p class="mt-2 text-sm text-slate-600">Aumento médio em visitas orgânicas locais</p>
+        </div>
+        <div class="rounded-xl border border-slate-200 p-6">
+          <p class="text-3xl font-semibold text-brand-600">68%</p>
+          <p class="mt-2 text-sm text-slate-600">Das conversões vêm de conteúdo + WhatsApp</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container">
+      <h2 class="text-2xl font-semibold">Por que PraiaDigital</h2>
+      <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <article class="rounded-xl border border-slate-200 p-6">
+          <h3 class="text-base font-semibold">Conteúdo local</h3>
+          <p class="mt-2 text-sm text-slate-600">Artigos, guias e páginas alinhadas com intenção de busca no litoral.</p>
+        </article>
+        <article class="rounded-xl border border-slate-200 p-6">
+          <h3 class="text-base font-semibold">Conversão clara</h3>
+          <p class="mt-2 text-sm text-slate-600">CTAs para WhatsApp e formulários com copy direto ao proprietário.</p>
+        </article>
+        <article class="rounded-xl border border-slate-200 p-6">
+          <h3 class="text-base font-semibold">Performance</h3>
+          <p class="mt-2 text-sm text-slate-600">Site estático com carregamento rápido, SEO técnico e Lighthouse alto.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-slate-200">
+    <div class="container py-16">
+      <h2 class="text-2xl font-semibold">Cidades do litoral paulista</h2>
+      <p class="mt-2 text-sm text-slate-600">Conteúdo e automações alinhados com a região.</p>
+      <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {cidades.map((cidade) => (
+          <a href={`/hub/ia-corretores-litoral.html?cidade=${cidade.slug}`} class="rounded-xl border border-slate-200 p-5 hover:border-slate-300">
+            <p class="text-sm font-semibold text-brand-600">Litoral {cidade.regiao}</p>
+            <p class="mt-1 text-base font-semibold text-slate-900">{cidade.nome}</p>
+            <p class="mt-2 text-sm text-slate-600">Hub de IA para corretores e imobiliárias.</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-slate-200">
+    <div class="container py-16">
+      <LeadForm />
+    </div>
+  </section>
+</BaseLayout>

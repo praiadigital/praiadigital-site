@@ -1,0 +1,21 @@
+{
+  "cleanUrls": false,
+  "rewrites": [
+    { "source": "/blog.html", "destination": "/blog.html" },
+    { "source": "/blog/cases.html", "destination": "/blog/cases.html" },
+    { "source": "/contato.html", "destination": "/contato.html" },
+    { "source": "/faq.html", "destination": "/faq.html" },
+    { "source": "/hub/ia-corretores-litoral.html", "destination": "/hub/ia-corretores-litoral" },
+    { "source": "/hub/ia-corretores-litoral/", "destination": "/hub/ia-corretores-litoral" },
+    { "source": "/privacidade.html", "destination": "/privacidade.html" },
+    { "source": "/servicos/assessoria-imobiliaria.html", "destination": "/servicos/assessoria-imobiliaria.html" },
+    { "source": "/servicos/gestao-aluguel-temporada.html", "destination": "/servicos/gestao-aluguel-temporada.html" },
+    { "source": "/servicos/zeladoria-manutencao.html", "destination": "/servicos/zeladoria-manutencao.html" },
+    { "source": "/sobre.html", "destination": "/sobre.html" }
+  ],
+  "headers": [
+    { "source": "/((blog|hub|servicos|contato|faq|privacidade|sobre)(/.*)?|/index.html)", "headers": [
+      { "key": "Cache-Control", "value": "no-store, must-revalidate" }
+    ]}
+  ]
+}

@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+import { cidades } from '../../data/cidades.ts';
+
+const title = 'Hub de IA para Corretores do Litoral — PraiaDigital';
+const description = 'Ferramentas, prompts, automações e estratégias de IA para corretores e imobiliárias do litoral norte de São Paulo.';
+const canonical = 'https://praia.digital/hub/ia-corretores-litoral.html';
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} image="https://praia.digital/img/og/hub-ia-corretores.jpg">
+  <section class="border-b border-slate-200 bg-slate-50">
+    <div class="container py-16 md:py-24">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold text-brand-600">Ferramentas para corretores</p>
+        <h1 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Hub de IA para corretores do litoral</h1>
+        <p class="mt-4 text-lg text-slate-600">{description}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#ferramentas" class="rounded-md bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-brand-700">Ver ferramentas</a>
+          <a href="#contato" class="rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:border-slate-400">Quero acesso completo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ferramentas" class="py-16">
+    <div class="container">
+      <h2 class="text-2xl font-semibold">Pilares do hub</h2>
+      <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <article class="rounded-xl border border-slate-200 p-6">
+          <h3 class="text-base font-semibold">Atendimento</h3>
+          <p class="mt-2 text-sm text-slate-600">Scripts e fluxos de atendimento por WhatsApp com IA.</p>
+        </article>
+        <article class="rounded-xl border border-slate-200 p-6">
+          <h3 class="text-base font-semibold">Conteúdo</h3>
+          <p class="mt-2 text-sm text-slate-600">Prompts para textos, legendas, títulos e SEO local.</p>
+        </article>
+        <article class="rounded-xl border border-slate-200 p-6">
+          <h3 class="text-base font-semibold">Conversão</h3>
+          <p class="mt-2 text-sm text-slate-600">Modelos de follow-up, proposta e fechamento com IA.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-slate-200">
+    <div class="container py-16">
+      <h2 class="text-2xl font-semibold">Conteúdos por cidade</h2>
+      <p class="mt-2 text-sm text-slate-600">Ferramentas específicas para as principais cidades do litoral norte.</p>
+      <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {cidades.map((cidade) => (
+          <a href={`/hub/ia-corretores-litoral.html?cidade=${cidade.slug}`} class="rounded-xl border border-slate-200 p-5 hover:border-slate-300">
+            <p class="text-sm font-semibold text-brand-600">{cidade.regiao}</p>
+            <p class="mt-1 text-base font-semibold text-slate-900">{cidade.nome}</p>
+            <p class="mt-2 text-sm text-slate-600">Ferramentas e prompts para corretores locais.</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="border-t border-slate-200">
+    <div class="container py-16">
+      <LeadForm />
+    </div>
+  </section>
+</BaseLayout>

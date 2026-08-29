@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+---
+
+<BaseLayout title="Sobre" description="Conheça a PraiaDigital: estratégia de inbound marketing para imóveis no litoral norte de São Paulo.">
+  <section class="border-b border-slate-200">
+    <div class="container py-16">
+      <h1 class="text-3xl font-semibold tracking-tight">Sobre</h1>
+      <p class="mt-4 max-w-2xl text-slate-600">
+        PraiaDigital é uma operação focada em inbound marketing para imóveis no litoral norte de São Paulo. Ajudamos proprietários e imobiliárias a criar conteúdo, estruturar ofertas e gerar leads qualificados.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container">
+      <div class="max-w-3xl space-y-6 text-slate-600">
+        <p>Atuamos com uma abordagem enxuta, baseada em dados, conteúdo e conversão.</p>
+        <p>Nosso trabalho combina SEO local, copy para imóveis e automação para follow-up.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-slate-200">
+    <div class="container py-16">
+      <LeadForm />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Cases — PraiaDigital';
+const description = 'Cases e resultados de inbound marketing, automação e gestão de aluguel temporada no litoral norte de São Paulo.';
+const canonical = 'https://praia.digital/blog/cases.html';
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="border-b border-slate-200 bg-slate-50">
+    <div class="container py-16 md:py-24">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold text-brand-600">Resultados reais</p>
+        <h1 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Cases</h1>
+        <p class="mt-4 text-lg text-slate-600">{description}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <article class="rounded-xl border border-slate-200 p-6">
+          <p class="text-sm font-semibold text-brand-600">Aluguel temporada</p>
+          <h2 class="mt-2 text-lg font-semibold">Imóvel em São Sebastião</h2>
+          <p class="mt-2 text-sm text-slate-600">Aumento de 3,2x nas visitas orgânicas locais em 30 dias.</p>
+        </article>
+        <article class="rounded-xl border border-slate-200 p-6">
+          <p class="text-sm font-semibold text-brand-600">Assessoria</p>
+          <h2 class="mt-2 text-lg font-semibold">Imobiliária em Ubatuba</h2>
+          <p class="mt-2 text-sm text-slate-600">+170 leads qualificados em 30 dias com conteúdo + WhatsApp.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

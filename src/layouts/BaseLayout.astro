@@ -1,0 +1,32 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const props = Astro.props;
+
+const title = props.title
+  ? `${props.title} | PraiaDigital`
+  : 'PraiaDigital — Inbound Marketing para imóveis no litoral';
+
+const description = props.description ?? 'Gestão de aluguel temporada, zeladoria, manutenção e assessoria imobiliária no litoral norte de São Paulo.';
+---
+
+<BaseHead
+  site="https://praia.digital"
+  title={title}
+  description={description}
+  image={props.image}
+  canonical={props.canonical}
+  noindex={props.noindex}
+/>
+
+<div class="flex min-h-screen flex-col">
+  <Header />
+
+  <main class="flex-1">
+    <slot />
+  </main>
+
+  <Footer />
+</div>

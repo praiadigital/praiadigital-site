@@ -1,0 +1,14 @@
+# Exact-file rewrites
+/blog.html                    /blog.html                   200!
+/blog/cases.html              /blog/cases.html             200!
+/contato.html                 /contato.html                200!
+/faq.html                     /faq.html                    200!
+/hub/ia-corretores-litoral.html  /hub/ia-corretores-litoral.html  200!
+/hub/ia-corretores-litoral/      /hub/ia-corretores-litoral   200!
+/privacidade.html             /privacidade.html            200!
+/servicos/assessoria-imobiliaria.html  /servicos/assessoria-imobiliaria.html  200!
+/servicos/gestao-aluguel-temporada.html      /servicos/gestao-aluguel-temporada.html  200!
+/servicos/zeladoria-manutencao.html          /servicos/zeladoria-manutencao.html  200!
+/sobre.html                   /sobre.html                  200!
+
+# See public/_headers for cache rules

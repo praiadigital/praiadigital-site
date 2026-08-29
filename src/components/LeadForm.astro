@@ -1,0 +1,53 @@
+---
+const whatsappNumber = import.meta.env.WHATSAPP_NUMBER ?? '5511954346288';
+const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+const formTitle = 'Receba uma proposta personalizada';
+const formSubtitle = 'Preencha os dados abaixo e um especialista vai falar com você pelo WhatsApp.';
+---
+
+<section class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+  <div class="max-w-2xl">
+    <h2 class="text-2xl font-semibold tracking-tight">{formTitle}</h2>
+    <p class="mt-2 text-slate-600">{formSubtitle}</p>
+
+    <form
+      method="POST"
+      action={whatsappUrl}
+      target="_blank"
+      rel="noopener"
+      class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2"
+    >
+      <div class="md:col-span-2">
+        <label class="block text-sm font-medium text-slate-700" for="pd-name">Nome</label>
+        <input id="pd-name" name="name" type="text" autocomplete="name" required class="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-brand-500 focus:outline-none" placeholder="Seu nome completo" />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-slate-700" for="pd-phone">WhatsApp</label>
+        <input id="pd-phone" name="phone" type="tel" autocomplete="tel" required class="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-brand-500 focus:outline-none" placeholder="(11) 99999-9999" />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-slate-700" for="pd-email">E-mail</label>
+        <input id="pd-email" name="email" type="email" autocomplete="email" class="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-brand-500 focus:outline-none" placeholder="voce@exemplo.com" />
+      </div>
+
+      <div class="md:col-span-2">
+        <label class="block text-sm font-medium text-slate-700" for="pd-msg">Mensagem</label>
+        <textarea id="pd-msg" name="message" rows="3" class="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-brand-500 focus:outline-none" placeholder="Conte brevemente sobre o imóvel ou objetivo"></textarea>
+      </div>
+
+      <div class="md:col-span-2">
+        <p class="text-xs text-slate-500">
+          Ao enviar, você concorda com nossa <a href="/privacidade" class="underline">Política de Privacidade</a> e autoriza o contato por WhatsApp/e-mail.
+        </p>
+      </div>
+
+      <div class="md:col-span-2">
+        <button type="submit" class="inline-flex w-full items-center justify-center gap-2 rounded-md bg-brand-600 px-4 py-3 text-sm font-semibold text-white shadow hover:bg-brand-700 md:w-auto">
+          Quero falar no WhatsApp
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

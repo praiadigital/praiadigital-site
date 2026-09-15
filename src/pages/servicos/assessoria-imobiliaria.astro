@@ -3,7 +3,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import LeadForm from '../../components/LeadForm.astro';
 ---
 
-<BaseLayout title="Assessoria imobiliária" description="Assessoria para venda e temporada: avaliação, documentação, negociação e captação qualificada no litoral norte de SP.">
+<BaseLayout title="Assessoria imobiliária no litoral norte de SP" description="Assessoria imobiliária para venda e temporada no litoral norte de SP: avaliação de valor, documentação, negociação e captação qualificada de compradores.">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Assessoria imobiliária",
+    provider: { "@type": "ProfessionalService", name: "PraiaDigital", url: "https://praia.digital" },
+    areaServed: ["Ubatuba", "São Sebastião", "Caraguatatuba", "Ilhabela"],
+    description: "Assessoria completa para venda e valorização de imóveis: avaliação de mercado, documentação, negociação e captação qualificada de compradores e investidores."
+  })} />
   <section class="border-b border-slate-200">
     <div class="container py-16">
       <h1 class="text-3xl font-semibold tracking-tight">Venda ou valorize seu imóvel com segurança do início ao fim</h1>

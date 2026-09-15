@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+
+const title = 'Palavras-chave para imóveis no litoral: o que seu cliente busca no Google';
+const description = 'As intenções de busca mais relevantes para imóveis de temporada e venda no litoral norte de SP — e como usar cada uma no seu site e anúncios.';
+const published = '2026-09-15';
+---
+
+<BaseLayout title={title} description={description} publishedTime={published} modifiedTime={published}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    datePublished: published,
+    dateModified: published,
+    inLanguage: "pt-BR",
+    author: { "@type": "Organization", name: "PraiaDigital", url: "https://praia.digital" },
+    publisher: { "@type": "Organization", name: "PraiaDigital", url: "https://praia.digital" }
+  })} />
+
+  <section class="border-b border-slate-200 bg-slate-50">
+    <div class="container py-16">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-brand-600">SEO local</p>
+        <h1 class="mt-4 text-4xl font-semibold tracking-tight">{title}</h1>
+        <p class="mt-4 text-lg text-slate-600">{description}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container">
+      <article class="max-w-3xl space-y-8 text-slate-600">
+        <div>
+          <h2 class="text-xl font-semibold text-slate-900">Buscas de temporada</h2>
+          <p class="mt-2 text-sm">Termos como "casa para temporada em Ubatuba", "apartamento frente mar São Sebastião" e "aluguel temporada Ilhabela feriado" têm alta intenção de reserva. Crie páginas ou anúncios específicos para cada combinação cidade + tipo de imóvel.</p>
+        </div>
+        <div>
+          <h2 class="text-xl font-semibold text-slate-900">Buscas de venda</h2>
+          <p class="mt-2 text-sm">"Comprar apartamento em Caraguatatuba", "casa à venda Ubatuba praia" atraem compradores em fase de comparação. Responda com páginas de assessoria e avaliação — como nossa <a href="/servicos/assessoria-imobiliaria" class="text-brand-600 underline hover:text-brand-700">assessoria imobiliária</a>.</p>
+        </div>
+        <div>
+          <h2 class="text-xl font-semibold text-slate-900">Buscas de proprietários</h2>
+          <p class="mt-2 text-sm">Quem tem imóvel no litoral e mora longe busca "zeladoria de imóvel Ubatuba" ou "administração de temporada São Sebastião". São termos com pouca concorrência e altíssimo valor — é exatamente o público da nossa <a href="/servicos/zeladoria-manutencao" class="text-brand-600 underline hover:text-brand-700">zeladoria e manutenção</a>.</p>
+        </div>
+        <div>
+          <h2 class="text-xl font-semibold text-slate-900">Como aplicar</h2>
+          <p class="mt-2 text-sm">Uma página por intenção, título com cidade + serviço, conteúdo que responde a dúvida real e CTA direto para o WhatsApp. Veja como aplicamos isso nas páginas por cidade do nosso <a href="/hub/ia-corretores-litoral.html" class="text-brand-600 underline hover:text-brand-700">hub de IA para corretores</a>.</p>
+        </div>
+        <p class="text-sm">Quer um plano de palavras-chave para sua cidade? Fale com a equipe ou veja nossos <a href="/blog/cases" class="text-brand-600 underline hover:text-brand-700">cases</a>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="border-t border-slate-200">
+    <div class="container py-16">
+      <LeadForm />
+    </div>
+  </section>
+</BaseLayout>

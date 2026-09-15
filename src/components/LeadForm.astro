@@ -11,10 +11,8 @@ const formSubtitle = 'Em até 1 dia útil, um especialista analisa seu caso e re
     <p class="mt-2 text-slate-600">{formSubtitle}</p>
 
     <form
-      method="POST"
-      action={whatsappUrl}
-      target="_blank"
-      rel="noopener"
+      id="pd-lead-form"
+      data-whatsapp={whatsappNumber}
       class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2"
     >
       <div class="md:col-span-2">
@@ -49,5 +47,30 @@ const formSubtitle = 'Em até 1 dia útil, um especialista analisa seu caso e re
         </button>
       </div>
     </form>
+
+    <p class="mt-4 text-sm text-slate-500">
+      Prefere falar direto? <a href={whatsappUrl} target="_blank" rel="noopener" class="font-semibold text-brand-600 underline hover:text-brand-700">Chame no WhatsApp</a> ou veja o <a href="/faq" class="underline hover:text-brand-600">FAQ</a>.
+    </p>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('pd-lead-form');
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const name = data.get('name') || '';
+    const phone = data.get('phone') || '';
+    const email = data.get('email') || '';
+    const message = data.get('message') || '';
+    const text = [
+      `Olá! Sou ${name}.`,
+      `WhatsApp: ${phone}`,
+      email ? `E-mail: ${email}` : '',
+      message ? `Mensagem: ${message}` : '',
+      'Quero um diagnóstico gratuito do meu imóvel.'
+    ].filter(Boolean).join('\n');
+    const number = form.getAttribute('data-whatsapp') || '5511954346288';
+    window.open(`https://wa.me/${number}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+  });
+</script>

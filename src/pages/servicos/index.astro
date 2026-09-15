@@ -22,13 +22,19 @@ const servicos = [
     text: 'Inspeções periódicas com relatório fotográfico, manutenção preventiva e atendimento emergencial — mesmo com você longe.',
   },
 ];
+
+const explorar = [
+  { href: '/blog', title: 'Blog e guias', text: 'Conteúdos práticos para proprietários e corretores do litoral.' },
+  { href: '/hub/ia-corretores-litoral.html', title: 'Hub de IA para corretores', text: 'Ferramentas, prompts e automações de IA para o mercado do litoral.' },
+  { href: '/blog/cases', title: 'Cases e resultados', text: 'Resultados reais de clientes PraiaDigital no litoral norte.' },
+];
 ---
 
 <BaseLayout title="Serviços" description="Gestão de aluguel temporada, assessoria imobiliária e zeladoria para imóveis no litoral norte de São Paulo.">
-  <section class="border-b border-slate-200 bg-slate-50">
+  <section class="border-b border-slate-200 bg-gradient-to-b from-brand-50 to-white">
     <div class="container py-16 md:py-24">
-      <div class="max-w-2xl">
-        <p class="text-sm font-semibold text-brand-600">Serviços PraiaDigital</p>
+      <div class="max-w-2xl animate-fade-up">
+        <p class="eyebrow">Serviços PraiaDigital</p>
         <h1 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Tudo para seu imóvel no litoral render mais</h1>
         <p class="mt-4 text-lg text-slate-600">
           Da captação de hóspedes à manutenção do imóvel: escolha o serviço ideal para o seu momento ou combine os três em uma operação completa.
@@ -37,13 +43,13 @@ const servicos = [
     </div>
   </section>
 
-  <section class="py-16">
+  <section class="border-b border-slate-200 py-16">
     <div class="container">
       <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
         {servicos.map((s) => (
-          <a href={s.href} class="rounded-xl border border-slate-200 p-6 hover:border-slate-300">
-            <p class="text-sm font-semibold text-brand-600">{s.tag}</p>
-            <h2 class="mt-2 text-lg font-semibold">{s.title}</h2>
+          <a href={s.href} class="card card-hover no-underline hover:no-underline">
+            <span class="inline-block rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">{s.tag}</span>
+            <h2 class="mt-3 text-lg font-semibold text-slate-900">{s.title}</h2>
             <p class="mt-2 text-sm text-slate-600">{s.text}</p>
             <p class="mt-3 text-sm font-semibold text-brand-600">Conhecer o serviço →</p>
           </a>
@@ -52,27 +58,21 @@ const servicos = [
     </div>
   </section>
 
-  <section class="border-t border-slate-200 bg-slate-50">
-    <div class="container py-12">
+  <section class="border-b border-slate-200 bg-slate-50">
+    <div class="container py-16">
       <h2 class="text-xl font-semibold">Continue explorando</h2>
       <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
-        <a href="/blog" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300">
-          <p class="text-sm font-semibold text-slate-900">Blog e guias</p>
-          <p class="mt-1 text-sm text-slate-600">Conteúdos práticos para proprietários e corretores do litoral.</p>
-        </a>
-        <a href="/hub/ia-corretores-litoral.html" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300">
-          <p class="text-sm font-semibold text-slate-900">Hub de IA para corretores</p>
-          <p class="mt-1 text-sm text-slate-600">Ferramentas, prompts e automações de IA para o mercado do litoral.</p>
-        </a>
-        <a href="/blog/cases" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300">
-          <p class="text-sm font-semibold text-slate-900">Cases e resultados</p>
-          <p class="mt-1 text-sm text-slate-600">Resultados reais de clientes PraiaDigital no litoral norte.</p>
-        </a>
+        {explorar.map((item) => (
+          <a href={item.href} class="card card-hover no-underline hover:no-underline">
+            <p class="text-sm font-semibold text-slate-900">{item.title}</p>
+            <p class="mt-1 text-sm text-slate-600">{item.text}</p>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <section class="border-t border-slate-200">
+  <section>
     <div class="container py-16">
       <LeadForm />
     </div>

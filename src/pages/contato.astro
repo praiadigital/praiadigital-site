@@ -1,29 +1,59 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LeadForm from '../components/LeadForm.astro';
+
+const canais = [
+  {
+    title: 'WhatsApp',
+    text: 'Resposta em até 1 dia útil. O canal mais rápido para falar com um especialista.',
+    href: 'https://wa.me/5511954346288',
+    cta: 'Chamar no WhatsApp',
+    external: true,
+  },
+  {
+    title: 'E-mail',
+    text: 'Prefere detalhar por escrito? Envie para comercial@praia.digital.',
+    href: 'mailto:comercial@praia.digital',
+    cta: 'Enviar e-mail',
+    external: false,
+  },
+  {
+    title: 'FAQ',
+    text: 'Talvez sua dúvida já esteja respondida nas perguntas frequentes.',
+    href: '/faq',
+    cta: 'Ver perguntas frequentes',
+    external: false,
+  },
+];
 ---
 
 <BaseLayout title="Contato" description="Fale com a PraiaDigital por WhatsApp ou formulário para imóveis no litoral norte de SP.">
-  <section class="border-b border-slate-200">
+  <section class="border-b border-slate-200 bg-gradient-to-b from-brand-50 to-white">
     <div class="container py-16">
-      <h1 class="text-3xl font-semibold tracking-tight">Vamos conversar sobre seu imóvel?</h1>
+      <p class="eyebrow">Contato</p>
+      <h1 class="mt-2 text-3xl font-semibold tracking-tight">Vamos conversar sobre seu imóvel?</h1>
       <p class="mt-4 max-w-2xl text-slate-600">
-        Conte seu objetivo — mais reservas, venda ou tranquilidade na manutenção. Respondemos em até 1 dia útil pelo WhatsApp.
-      </p>
-      <div class="mt-6">
-        <a href="https://wa.me/5511954346288" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-md bg-litoral-600 px-4 py-3 text-sm font-semibold text-white shadow hover:bg-litoral-500">
-          Chamar no WhatsApp
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.6-5.2A8.38 8.38 0 0 1 3.5 11.5a8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>
-        </a>
-      </div>
-      <p class="mt-6 max-w-2xl text-sm text-slate-600">
-        Antes de chamar, você pode conferir as <a href="/faq" class="text-brand-600 underline hover:text-brand-700">perguntas frequentes</a> ou conhecer os <a href="/servicos" class="text-brand-600 underline hover:text-brand-700">serviços em detalhe</a>.
+        Conte seu objetivo — mais reservas, venda ou tranquilidade na manutenção. Respondemos em até 1 dia útil.
       </p>
     </div>
   </section>
 
-  <section class="py-16">
+  <section class="border-b border-slate-200 py-16">
     <div class="container">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+        {canais.map((canal) => (
+          <a href={canal.href} target={canal.external ? '_blank' : undefined} rel={canal.external ? 'noopener' : undefined} class="card card-hover no-underline hover:no-underline">
+            <h2 class="text-base font-semibold text-slate-900">{canal.title}</h2>
+            <p class="mt-2 text-sm text-slate-600">{canal.text}</p>
+            <p class="mt-3 text-sm font-semibold text-brand-600">{canal.cta} →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50">
+    <div class="container py-16">
       <LeadForm />
     </div>
   </section>

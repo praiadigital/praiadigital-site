@@ -42,41 +42,30 @@ const faqSchema = {
 <BaseLayout title="FAQ" description="Perguntas frequentes sobre serviços da PraiaDigital para imóveis no litoral norte de SP.">
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqSchema)} />
 
-  <section class="border-b border-slate-200">
+  <section class="border-b border-slate-200 bg-gradient-to-b from-brand-50 to-white">
     <div class="container py-16">
-      <h1 class="text-3xl font-semibold tracking-tight">Perguntas frequentes</h1>
+      <p class="eyebrow">Dúvidas</p>
+      <h1 class="mt-2 text-3xl font-semibold tracking-tight">Perguntas frequentes</h1>
       <p class="mt-4 max-w-2xl text-slate-600">Respostas rápidas para as dúvidas mais comuns de proprietários e imobiliárias.</p>
     </div>
   </section>
 
   <section class="py-16">
-    <div class="container">
-      <dl class="max-w-3xl divide-y divide-slate-200">
-        <div class="py-6">
-          <dt class="text-base font-semibold text-slate-900">Como funciona o atendimento inicial?</dt>
-          <dd class="mt-2 text-sm text-slate-600">Você preenche o <a href="/contato" class="text-brand-600 underline hover:text-brand-700">formulário de contato</a> ou envia mensagem pelo WhatsApp. Um especialista responde em até um dia útil.</dd>
-        </div>
-        <div class="py-6">
-          <dt class="text-base font-semibold text-slate-900">Quais cidades atendem?</dt>
-          <dd class="mt-2 text-sm text-slate-600">Atuamos no litoral norte de SP — São Sebastião, Ubatuba, Caraguatatuba e Ilhabela — com foco em temporada e venda de imóveis. Veja as <a href="/hub/ia-corretores-litoral.html" class="text-brand-600 underline hover:text-brand-700">ferramentas por cidade</a>.</dd>
-        </div>
-        <div class="py-6">
-          <dt class="text-base font-semibold text-slate-900">Os valores são personalizados?</dt>
-          <dd class="mt-2 text-sm text-slate-600">Sim. Após um briefing gratuito, montamos proposta por serviço e escopo, sem compromisso.</dd>
-        </div>
-        <div class="py-6">
-          <dt class="text-base font-semibold text-slate-900">Vocês cuidam do imóvel se eu morar em outra cidade?</dt>
-          <dd class="mt-2 text-sm text-slate-600">Sim. A <a href="/servicos/zeladoria-manutencao" class="text-brand-600 underline hover:text-brand-700">zeladoria local</a> inclui inspeções periódicas com relatório fotográfico, manutenção preventiva e atendimento emergencial — você acompanha tudo à distância.</dd>
-        </div>
-        <div class="py-6">
-          <dt class="text-base font-semibold text-slate-900">Como a IA é usada no atendimento?</dt>
-          <dd class="mt-2 text-sm text-slate-600">Usamos IA para agilizar respostas no WhatsApp, qualificar leads, gerar conteúdo local e fazer follow-up — sempre com supervisão humana. Conheça o <a href="/hub/ia-corretores-litoral.html" class="text-brand-600 underline hover:text-brand-700">hub de IA para corretores</a> e o artigo sobre <a href="/blog/ia-para-corretores-litoral" class="text-brand-600 underline hover:text-brand-700">IA para corretores do litoral</a>.</dd>
-        </div>
-        <div class="py-6">
-          <dt class="text-base font-semibold text-slate-900">Posso cancelar quando quiser?</dt>
-          <dd class="mt-2 text-sm text-slate-600">As condições de vigência e cancelamento são definidas de forma transparente na proposta, antes de qualquer contratação.</dd>
-        </div>
-      </dl>
+    <div class="container max-w-3xl space-y-3">
+      {faqs.map((faq, i) => (
+        <details class="group card !p-0" {...(i === 0 ? { open: true } : {})}>
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-5 text-base font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+            {faq.q}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-slate-400 transition-transform group-open:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <p class="px-5 pb-5 text-sm text-slate-600">{faq.a}</p>
+        </details>
+      ))}
+
+      <div class="!mt-8 rounded-xl border border-slate-200 bg-slate-50 p-6">
+        <h2 class="text-lg font-semibold">Ainda tem dúvidas?</h2>
+        <p class="mt-2 text-sm text-slate-600">Fale com a gente pelo <a href="/contato" class="text-brand-600 underline hover:text-brand-700">formulário de contato</a> ou direto no <a href="https://wa.me/5511954346288" target="_blank" rel="noopener" class="text-brand-600 underline hover:text-brand-700">WhatsApp</a>. Você também pode explorar o <a href="/hub/ia-corretores-litoral.html" class="text-brand-600 underline hover:text-brand-700">hub de IA para corretores</a>.</p>
+      </div>
     </div>
   </section>
 </BaseLayout>

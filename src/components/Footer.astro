@@ -1,5 +1,7 @@
 ---
 const year = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
+const u = (path: string) => `${base}${path.replace(/^\//, '')}`;
 
 import { cidades } from '../data/cidades.ts';
 ---
@@ -20,10 +22,10 @@ import { cidades } from '../data/cidades.ts';
       <nav aria-label="Serviços">
         <p class="font-semibold text-slate-900">Serviços</p>
         <ul class="mt-3 space-y-2 text-sm text-slate-600">
-          <li><a href="/servicos" class="hover:text-brand-600">Todos os serviços</a></li>
-          <li><a href="/servicos/gestao-aluguel-temporada" class="hover:text-brand-600">Gestão de aluguel temporada</a></li>
-          <li><a href="/servicos/zeladoria-manutencao" class="hover:text-brand-600">Zeladoria e manutenção</a></li>
-          <li><a href="/servicos/assessoria-imobiliaria" class="hover:text-brand-600">Assessoria imobiliária</a></li>
+          <li><a href={u('/servicos/')} class="hover:text-brand-600">Todos os serviços</a></li>
+          <li><a href={u('/servicos/gestao-aluguel-temporada/')} class="hover:text-brand-600">Gestão de aluguel temporada</a></li>
+          <li><a href={u('/servicos/zeladoria-manutencao/')} class="hover:text-brand-600">Zeladoria e manutenção</a></li>
+          <li><a href={u('/servicos/assessoria-imobiliaria/')} class="hover:text-brand-600">Assessoria imobiliária</a></li>
         </ul>
       </nav>
 
@@ -31,7 +33,7 @@ import { cidades } from '../data/cidades.ts';
         <p class="font-semibold text-slate-900">Cidades</p>
         <ul class="mt-3 space-y-2 text-sm text-slate-600">
           {cidades.map((cidade) => (
-            <li><a href={`/cidades/${cidade.slug}`} class="hover:text-brand-600">{cidade.nome}</a></li>
+            <li><a href={u(`/cidades/${cidade.slug}/`)} class="hover:text-brand-600">{cidade.nome}</a></li>
           ))}
         </ul>
       </nav>
@@ -39,23 +41,23 @@ import { cidades } from '../data/cidades.ts';
       <nav aria-label="Conteúdos e recursos">
         <p class="font-semibold text-slate-900">Conteúdos</p>
         <ul class="mt-3 space-y-2 text-sm text-slate-600">
-          <li><a href="/blog" class="hover:text-brand-600">Blog</a></li>
-          <li><a href="/blog/como-preparar-imovel-temporada" class="hover:text-brand-600">Preparar o imóvel para temporada</a></li>
-          <li><a href="/blog/fotos-que-vendem-mais" class="hover:text-brand-600">Fotos que vendem mais</a></li>
-          <li><a href="/blog/palavras-chave-seo-litoral" class="hover:text-brand-600">Palavras-chave para o litoral</a></li>
-          <li><a href="/blog/ia-para-corretores-litoral" class="hover:text-brand-600">IA para corretores</a></li>
-          <li><a href="/hub/ia-corretores-litoral.html" class="hover:text-brand-600">Hub de IA para corretores</a></li>
-          <li><a href="/blog/cases" class="hover:text-brand-600">Cases</a></li>
+          <li><a href={u('/blog/')} class="hover:text-brand-600">Blog</a></li>
+          <li><a href={u('/blog/como-preparar-imovel-temporada/')} class="hover:text-brand-600">Preparar o imóvel para temporada</a></li>
+          <li><a href={u('/blog/fotos-que-vendem-mais/')} class="hover:text-brand-600">Fotos que vendem mais</a></li>
+          <li><a href={u('/blog/palavras-chave-seo-litoral/')} class="hover:text-brand-600">Palavras-chave para o litoral</a></li>
+          <li><a href={u('/blog/ia-para-corretores-litoral/')} class="hover:text-brand-600">IA para corretores</a></li>
+          <li><a href={u('/hub/ia-corretores-litoral.html')} class="hover:text-brand-600">Hub de IA para corretores</a></li>
+          <li><a href={u('/blog/cases/')} class="hover:text-brand-600">Cases</a></li>
         </ul>
       </nav>
 
       <nav aria-label="Institucional">
         <p class="font-semibold text-slate-900">Institucional</p>
         <ul class="mt-3 space-y-2 text-sm text-slate-600">
-          <li><a href="/sobre" class="hover:text-brand-600">Sobre</a></li>
-          <li><a href="/faq" class="hover:text-brand-600">FAQ</a></li>
-          <li><a href="/contato" class="hover:text-brand-600">Contato</a></li>
-          <li><a href="/privacidade" class="hover:text-brand-600">Política de Privacidade</a></li>
+          <li><a href={u('/sobre/')} class="hover:text-brand-600">Sobre</a></li>
+          <li><a href={u('/faq/')} class="hover:text-brand-600">FAQ</a></li>
+          <li><a href={u('/contato/')} class="hover:text-brand-600">Contato</a></li>
+          <li><a href={u('/privacidade/')} class="hover:text-brand-600">Política de Privacidade</a></li>
         </ul>
       </nav>
     </div>

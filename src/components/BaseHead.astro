@@ -12,7 +12,7 @@ const {
 
 const canonicalURL = canonical ?? new URL(Astro.url.pathname, site).toString();
 const ogImage = image ?? `${site}/img/og-default.png`;
-const ogImageAlt = 'Praia Digital – IA que gera leads e vendas para imobiliárias no litoral';
+const ogImageAlt = 'Praia Digital — IA que gera leads e vendas para imobiliárias no litoral';
 ---
 
 <!doctype html>
@@ -21,7 +21,6 @@ const ogImageAlt = 'Praia Digital – IA que gera leads e vendas para imobiliár
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="canonical" href={canonicalURL} />
-    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Primary Meta -->
     <title>{title}</title>
@@ -29,11 +28,16 @@ const ogImageAlt = 'Praia Digital – IA que gera leads e vendas para imobiliár
     <meta name="description" content={description} />
     <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1'} />
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+
     <!-- Favicon -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#0ea5e9" />
+    <meta name="theme-color" content="#2563eb" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />

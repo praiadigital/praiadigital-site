@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+
+const title = 'Como preparar o imóvel para temporada';
+const description = 'Checklist completo para preparar seu imóvel no litoral norte de SP para aluguel por temporada: limpeza, manutenção, enxoval e apresentação.';
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="py-16">
+    <div class="container max-w-3xl">
+      <p class="text-sm font-semibold text-brand-600">Guia do proprietário</p>
+      <h1 class="mt-4 text-4xl font-semibold tracking-tight">{title}</h1>
+      <p class="mt-4 text-lg text-slate-600">{description}</p>
+
+      <div class="mt-10 space-y-8 text-slate-600">
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">1. Manutenção antes de anunciar</h2>
+          <p class="mt-3">Nada derruba uma avaliação mais rápido que chuveiro frio, vazamento ou fechadura emperrada. Antes das primeiras fotos, revise:</p>
+          <ul class="mt-3 list-disc space-y-2 pl-6">
+            <li>Instalações elétricas e hidráulicas (chuveiro, torneiras, descarga, disjuntores);</li>
+            <li>Esquadrias, fechaduras e chaves — hóspede trancado para fora vira reclamação;</li>
+            <li>Ar-condicionado e ventiladores limpos e funcionando;</li>
+            <li>Pintura e pequenos reparos que aparecem nas fotos.</li>
+          </ul>
+          <p class="mt-3">Se você mora longe, nossa <a href="/servicos/zeladoria-manutencao" class="text-brand-600 underline hover:text-brand-700">zeladoria e manutenção</a> faz essa inspeção com relatório fotográfico.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">2. Enxoval e itens essenciais</h2>
+          <ul class="mt-3 list-disc space-y-2 pl-6">
+            <li>Roupas de cama e banho em quantidade para a capacidade máxima do imóvel (tenha sempre um jogo reserva);</li>
+            <li>Cozinha equipada: panelas, pratos, talheres, copos, cafeteira e micro-ondas;</li>
+            <li>Wi-Fi estável com senha visível na chegada;</li>
+            <li>Kit de limpeza básico e lixeiras em todos os ambientes.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">3. Limpeza profissional entre estadias</h2>
+          <p class="mt-3">Padronize a limpeza com checklist próprio: banheiros, cozinha, roupas de cama, chão e área externa. Hóspedes de temporada avaliam limpeza acima de qualquer outro item — e avaliação boa é o que alimenta as próximas reservas.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">4. Apresentação: fotos e anúncio</h2>
+          <p class="mt-3">Com o imóvel pronto, capriche na apresentação. Luz natural, ambientes arrumados e fotos horizontais fazem diferença direta na taxa de conversão. Veja nosso guia de <a href="/blog/fotos-que-vendem-mais" class="text-brand-600 underline hover:text-brand-700">fotos que vendem mais</a> e, se quiser delegar tudo, conheça a <a href="/servicos/gestao-aluguel-temporada" class="text-brand-600 underline hover:text-brand-700">gestão de aluguel por temporada</a>.</p>
+        </section>
+
+        <section class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+          <h2 class="text-xl font-semibold text-slate-900">Quer esse checklist aplicado no seu imóvel?</h2>
+          <p class="mt-2">A PraiaDigital cuida da operação completa de temporada no litoral norte de SP. Veja <a href="/blog/cases" class="text-brand-600 underline hover:text-brand-700">resultados reais</a> ou fale com a gente.</p>
+        </section>
+      </div>
+
+      <nav class="mt-12 border-t border-slate-200 pt-6" aria-label="Navegação do blog">
+        <a href="/blog" class="text-sm font-semibold text-brand-600 hover:text-brand-700">← Voltar para o blog</a>
+      </nav>
+    </div>
+  </article>
+
+  <section class="border-t border-slate-200">
+    <div class="container py-16">
+      <LeadForm />
+    </div>
+  </section>
+</BaseLayout>

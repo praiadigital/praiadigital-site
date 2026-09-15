@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+
+const servicos = [
+  {
+    href: '/servicos/gestao-aluguel-temporada',
+    tag: 'Temporada',
+    title: 'Gestão de aluguel por temporada',
+    text: 'Anúncios otimizados, reservas, precificação dinâmica e comunicação com hóspedes — seu imóvel rendendo o ano todo.',
+  },
+  {
+    href: '/servicos/assessoria-imobiliaria',
+    tag: 'Venda e valorização',
+    title: 'Assessoria imobiliária',
+    text: 'Avaliação de valor, estratégia de anúncio e acompanhamento completo para vender ou valorizar seu imóvel no litoral.',
+  },
+  {
+    href: '/servicos/zeladoria-manutencao',
+    tag: 'Operação local',
+    title: 'Zeladoria e manutenção',
+    text: 'Inspeções periódicas com relatório fotográfico, manutenção preventiva e atendimento emergencial — mesmo com você longe.',
+  },
+];
+---
+
+<BaseLayout title="Serviços" description="Gestão de aluguel temporada, assessoria imobiliária e zeladoria para imóveis no litoral norte de São Paulo.">
+  <section class="border-b border-slate-200 bg-slate-50">
+    <div class="container py-16 md:py-24">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold text-brand-600">Serviços PraiaDigital</p>
+        <h1 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Tudo para seu imóvel no litoral render mais</h1>
+        <p class="mt-4 text-lg text-slate-600">
+          Da captação de hóspedes à manutenção do imóvel: escolha o serviço ideal para o seu momento ou combine os três em uma operação completa.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {servicos.map((s) => (
+          <a href={s.href} class="rounded-xl border border-slate-200 p-6 hover:border-slate-300">
+            <p class="text-sm font-semibold text-brand-600">{s.tag}</p>
+            <h2 class="mt-2 text-lg font-semibold">{s.title}</h2>
+            <p class="mt-2 text-sm text-slate-600">{s.text}</p>
+            <p class="mt-3 text-sm font-semibold text-brand-600">Conhecer o serviço →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-slate-200 bg-slate-50">
+    <div class="container py-12">
+      <h2 class="text-xl font-semibold">Continue explorando</h2>
+      <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+        <a href="/blog" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300">
+          <p class="text-sm font-semibold text-slate-900">Blog e guias</p>
+          <p class="mt-1 text-sm text-slate-600">Conteúdos práticos para proprietários e corretores do litoral.</p>
+        </a>
+        <a href="/hub/ia-corretores-litoral.html" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300">
+          <p class="text-sm font-semibold text-slate-900">Hub de IA para corretores</p>
+          <p class="mt-1 text-sm text-slate-600">Ferramentas, prompts e automações de IA para o mercado do litoral.</p>
+        </a>
+        <a href="/blog/cases" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300">
+          <p class="text-sm font-semibold text-slate-900">Cases e resultados</p>
+          <p class="mt-1 text-sm text-slate-600">Resultados reais de clientes PraiaDigital no litoral norte.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-slate-200">
+    <div class="container py-16">
+      <LeadForm />
+    </div>
+  </section>
+</BaseLayout>

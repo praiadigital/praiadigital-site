@@ -21,10 +21,14 @@ const description = props.description ?? 'Gestão de aluguel temporada, zeladori
   noindex={props.noindex}
 />
 
+<a href="#conteudo" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">
+  Pular para o conteúdo
+</a>
+
 <div class="flex min-h-screen flex-col">
   <Header />
 
-  <main class="flex-1">
+  <main id="conteudo" class="flex-1">
     <slot />
   </main>
 

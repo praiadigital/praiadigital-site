@@ -1,60 +1,78 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const whatsappUrl = 'https://wa.me/5511954346288';
+const posts = [
+  {
+    href: '/blog/ia-para-corretores-litoral',
+    tag: 'Inteligência artificial',
+    title: 'IA para corretores do litoral: por onde começar',
+    text: 'Atendimento, conteúdo e follow-up com IA — sem perder o toque humano.',
+    date: '2026-09-14',
+    dateLabel: '14 set 2026',
+  },
+  {
+    href: '/blog/palavras-chave-seo-litoral',
+    tag: 'SEO',
+    title: 'Palavras-chave para o litoral',
+    text: 'As intenções de busca que geram reservas e vendas no litoral norte.',
+    date: '2026-09-12',
+    dateLabel: '12 set 2026',
+  },
+  {
+    href: '/blog/fotos-que-vendem-mais',
+    tag: 'Marketing',
+    title: 'Fotos que vendem mais',
+    text: 'Direção de arte simples para anúncios de temporada que convertem.',
+    date: '2026-09-10',
+    dateLabel: '10 set 2026',
+  },
+  {
+    href: '/blog/como-preparar-imovel-temporada',
+    tag: 'Guia',
+    title: 'Como preparar o imóvel para temporada',
+    text: 'Checklist completo: limpeza, manutenção, enxoval e apresentação.',
+    date: '2026-09-08',
+    dateLabel: '8 set 2026',
+  },
+  {
+    href: '/blog/cases',
+    tag: 'Resultados',
+    title: 'Cases e resultados',
+    text: 'Números reais de clientes PraiaDigital no litoral norte de SP.',
+    date: '2026-09-05',
+    dateLabel: '5 set 2026',
+  },
+];
 ---
 
-<BaseLayout title="Blog — guias de temporada, SEO local e imóveis no litoral norte" description="Guias e ideias práticas sobre aluguel de temporada, SEO local, fotos para anúncios e marketing imobiliário no litoral norte de São Paulo.">
+<BaseLayout title="Blog" description="Guias e conteúdos sobre aluguel temporada, imóveis no litoral norte de SP, SEO local e inbound marketing imobiliário.">
   <section class="border-b border-slate-200">
     <div class="container py-16">
       <h1 class="text-3xl font-semibold tracking-tight">Blog</h1>
-      <p class="mt-4 max-w-2xl text-slate-600">Guias, materiais e ideias para proprietários e corretores do litoral.</p>
-      <p class="mt-2 text-sm text-slate-600">Veja também nossos <a href="/blog/cases" class="text-brand-600 underline hover:text-brand-700">cases e resultados reais</a>.</p>
+      <p class="mt-4 max-w-2xl text-slate-600">Guias, materiais e ideias para proprietários e corretores do litoral. Assine o <a href="/rss.xml" class="text-brand-600 underline hover:text-brand-700">feed RSS</a>.</p>
     </div>
   </section>
 
   <section class="py-16">
     <div class="container">
       <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-        <a href="/blog/preparar-imovel-temporada" class="rounded-xl border border-slate-200 p-6 hover:border-slate-300">
-          <p class="text-sm font-semibold text-brand-600">Guia</p>
-          <h2 class="mt-2 text-lg font-semibold">Como preparar o imóvel para temporada</h2>
-          <p class="mt-2 text-sm text-slate-600">Checklist para limpeza, manutenção e apresentação.</p>
-          <p class="mt-3 text-sm font-semibold text-brand-600">Ler o guia completo →</p>
-        </a>
-        <a href="/blog/fotos-que-vendem-mais" class="rounded-xl border border-slate-200 p-6 hover:border-slate-300">
-          <p class="text-sm font-semibold text-brand-600">Marketing</p>
-          <h2 class="mt-2 text-lg font-semibold">Fotos que vendem mais</h2>
-          <p class="mt-2 text-sm text-slate-600">Direção de arte simples para anúncios de temporada.</p>
-          <p class="mt-3 text-sm font-semibold text-brand-600">Ler o guia completo →</p>
-        </a>
-        <a href="/blog/palavras-chave-litoral" class="rounded-xl border border-slate-200 p-6 hover:border-slate-300">
-          <p class="text-sm font-semibold text-brand-600">SEO</p>
-          <h2 class="mt-2 text-lg font-semibold">Palavras-chave para litoral</h2>
-          <p class="mt-2 text-sm text-slate-600">Intenções de busca relevantes para sua região.</p>
-          <p class="mt-3 text-sm font-semibold text-brand-600">Ler o guia completo →</p>
-        </a>
+        {posts.map((post) => (
+          <a href={post.href} class="rounded-xl border border-slate-200 p-6 hover:border-slate-300">
+            <div class="flex items-center justify-between gap-2">
+              <p class="text-sm font-semibold text-brand-600">{post.tag}</p>
+              <time datetime={post.date} class="text-xs text-slate-400">{post.dateLabel}</time>
+            </div>
+            <h2 class="mt-2 text-lg font-semibold">{post.title}</h2>
+            <p class="mt-2 text-sm text-slate-600">{post.text}</p>
+            <p class="mt-3 text-sm font-semibold text-brand-600">Ler o conteúdo →</p>
+          </a>
+        ))}
       </div>
-    </div>
-  </section>
 
-  <section class="border-t border-slate-200 bg-slate-50">
-    <div class="container py-12">
-      <h2 class="text-xl font-semibold">Pronto para aplicar?</h2>
-      <p class="mt-2 max-w-2xl text-sm text-slate-600">Coloque essas ideias em prática com nossos serviços:</p>
-      <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
-        <a href="/servicos/gestao-aluguel-temporada" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300">
-          <p class="text-sm font-semibold text-slate-900">Gestão de temporada</p>
-          <p class="mt-1 text-sm text-slate-600">Anúncios, reservas e precificação dinâmica.</p>
-        </a>
-        <a href="/servicos/assessoria-imobiliaria" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300">
-          <p class="text-sm font-semibold text-slate-900">Assessoria imobiliária</p>
-          <p class="mt-1 text-sm text-slate-600">Venda ou valorize seu imóvel com segurança.</p>
-        </a>
-        <a href="/blog/cases" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300">
-          <p class="text-sm font-semibold text-slate-900">Cases e resultados</p>
-          <p class="mt-1 text-sm text-slate-600">Veja resultados reais de clientes no litoral.</p>
-        </a>
+      <div class="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-6">
+        <h2 class="text-lg font-semibold">Ferramentas de IA para corretores</h2>
+        <p class="mt-2 text-sm text-slate-600">Prompts, scripts e automações organizados por cidade no nosso hub.</p>
+        <a href="/hub/ia-corretores-litoral.html" class="mt-3 inline-block text-sm font-semibold text-brand-600 hover:text-brand-700">Acessar o hub de IA →</a>
       </div>
     </div>
   </section>

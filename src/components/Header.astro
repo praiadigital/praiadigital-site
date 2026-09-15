@@ -1,6 +1,7 @@
 ---
 const whatsappNumber = import.meta.env.WHATSAPP_NUMBER ?? '5511954346288';
 const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+const pathname = Astro.url.pathname;
 
 const servicos = [
   { href: '/servicos/gestao-aluguel-temporada', label: 'Gestão de aluguel temporada' },
@@ -16,6 +17,13 @@ const navLinks = [
   { href: '/faq', label: 'FAQ' },
   { href: '/contato', label: 'Contato' },
 ];
+
+function isActive(href: string): boolean {
+  if (href === '/blog') return pathname.startsWith('/blog');
+  if (href === '/servicos') return pathname.startsWith('/servicos');
+  if (href === '/hub/ia-corretores-litoral.html') return pathname.startsWith('/hub') || pathname.startsWith('/cidades');
+  return pathname.startsWith(href);
+}
 ---
 
 <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
@@ -27,7 +35,11 @@ const navLinks = [
 
     <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600" aria-label="Navegação principal">
       {navLinks.map((link) => (
-        <a href={link.href} class="hover:text-brand-600">{link.label}</a>
+        <a
+          href={link.href}
+          class={isActive(link.href) ? 'text-brand-600' : 'hover:text-brand-600'}
+          aria-current={isActive(link.href) ? 'page' : undefined}
+        >{link.label}</a>
       ))}
     </nav>
 
@@ -49,7 +61,7 @@ const navLinks = [
         <nav class="absolute right-0 top-12 w-64 rounded-xl border border-slate-200 bg-white p-4 shadow-lg" aria-label="Menu móvel">
           <ul class="space-y-1 text-sm font-medium text-slate-700">
             {navLinks.map((link) => (
-              <li><a href={link.href} class="block rounded-md px-3 py-2 hover:bg-slate-50 hover:text-brand-600">{link.label}</a></li>
+              <li><a href={link.href} class="block rounded-md px-3 py-2 hover:bg-slate-50 hover:text-brand-600" aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a></li>
             ))}
             <li class="border-t border-slate-200 pt-2 mt-2"><p class="px-3 pb-1 text-xs font-semibold uppercase tracking-wide text-slate-400">Serviços</p></li>
             {servicos.map((s) => (
@@ -61,20 +73,3 @@ const navLinks = [
     </div>
   </div>
 </header>
-
-<script>
-  const menu = document.getElementById('mobile-menu') as HTMLDetailsElement | null;
-
-  document.addEventListener('click', (event) => {
-    if (menu && menu.open && !menu.contains(event.target as Node)) {
-      menu.open = false;
-    }
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && menu?.open) {
-      menu.open = false;
-      menu.querySelector('summary')?.focus();
-    }
-  });
-</script>

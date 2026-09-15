@@ -4,9 +4,22 @@ import LeadForm from '../../components/LeadForm.astro';
 
 const title = 'Fotos que vendem mais';
 const description = 'Direção de arte simples para anúncios de temporada: como fotografar seu imóvel no litoral para atrair mais reservas e visitas.';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  inLanguage: 'pt-BR',
+  author: { '@type': 'Organization', name: 'PraiaDigital', url: 'https://praia.digital' },
+  publisher: { '@type': 'Organization', name: 'PraiaDigital', url: 'https://praia.digital' },
+  mainEntityOfPage: 'https://praia.digital/blog/fotos-que-vendem-mais',
+};
 ---
 
 <BaseLayout title={title} description={description}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(articleSchema)} />
+
   <article class="py-16">
     <div class="container max-w-3xl">
       <p class="text-sm font-semibold text-brand-600">Marketing imobiliário</p>

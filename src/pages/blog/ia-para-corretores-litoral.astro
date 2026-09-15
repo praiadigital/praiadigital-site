@@ -1,50 +1,66 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
 
-const usos = [
-  { titulo: 'Atendimento em segundos', texto: 'Respostas automáticas no WhatsApp com tom humano, qualificando o lead antes do corretor entrar na conversa.' },
-  { titulo: 'Conteúdo local em escala', texto: 'Guias de bairros, descrições de imóveis e posts gerados com IA e revisados por quem conhece o litoral.' },
-  { titulo: 'Follow-up sem esquecimento', texto: 'Sequências automáticas que retomam contatos frios na hora certa — alta temporada, feriados, eventos.' },
-  { titulo: 'Precificação orientada a dados', texto: 'Análise de ocupação e demanda para sugerir diárias e valores de venda competitivos por cidade.' },
-];
+const title = 'IA para corretores do litoral: por onde começar';
+const description = 'Como corretores e imobiliárias do litoral norte de SP usam IA para atendimento, conteúdo e follow-up — sem perder o toque humano.';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  inLanguage: 'pt-BR',
+  author: { '@type': 'Organization', name: 'PraiaDigital', url: 'https://praia.digital' },
+  publisher: { '@type': 'Organization', name: 'PraiaDigital', url: 'https://praia.digital' },
+  mainEntityOfPage: 'https://praia.digital/blog/ia-para-corretores-litoral',
+};
 ---
 
-<BaseLayout title="IA para corretores do litoral: por onde começar" description="Atendimento, conteúdo e follow-up com IA — sem perder o toque humano. Um guia prático para corretores do litoral norte de SP.">
-  <article class="border-b border-slate-200">
-    <div class="container py-16">
-      <p class="eyebrow">Inteligência artificial</p>
-      <h1 class="mt-2 text-3xl font-semibold tracking-tight">IA para corretores do litoral: por onde começar</h1>
-      <p class="mt-4 max-w-2xl text-slate-600">Atendimento, conteúdo e follow-up com IA — sem perder o toque humano.</p>
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(articleSchema)} />
+
+  <article class="py-16">
+    <div class="container max-w-3xl">
+      <p class="text-sm font-semibold text-brand-600">Inteligência artificial</p>
+      <h1 class="mt-4 text-4xl font-semibold tracking-tight">{title}</h1>
+      <p class="mt-4 text-lg text-slate-600">{description}</p>
+
+      <div class="mt-10 space-y-8 text-slate-600">
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">O problema: lead esfriando no WhatsApp</h2>
+          <p class="mt-3">No litoral, a jornada do cliente é intensa e sazonal: em dezembro chove lead, em maio o silêncio. Quem responde em minutos converte; quem responde no dia seguinte perde para o concorrente. É aí que a IA entra — não para substituir o corretor, mas para garantir que nenhum lead fique sem resposta.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">Três usos práticos de IA</h2>
+          <ul class="mt-3 list-disc space-y-2 pl-6">
+            <li><strong class="text-slate-900">Atendimento:</strong> respostas imediatas no WhatsApp com qualificação automática (orçamento, cidade, período);</li>
+            <li><strong class="text-slate-900">Conteúdo:</strong> descrições de imóveis, legendas e títulos otimizados para buscas locais — veja nosso guia de <a href="/blog/palavras-chave-seo-litoral" class="text-brand-600 underline hover:text-brand-700">palavras-chave para o litoral</a>;</li>
+            <li><strong class="text-slate-900">Follow-up:</strong> lembretes e sequências de retorno para leads que pediram proposta e sumiram.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">Sempre com supervisão humana</h2>
+          <p class="mt-3">A IA acelera, mas quem fecha negócio é gente. Toda automação da PraiaDigital passa por revisão humana: a IA prepara, o corretor aprova e conduz. Assim você ganha velocidade sem perder a confiança que o mercado imobiliário exige.</p>
+        </section>
+
+        <section class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+          <h2 class="text-xl font-semibold text-slate-900">Explore as ferramentas</h2>
+          <p class="mt-2">Reunimos prompts, scripts e automações no <a href="/hub/ia-corretores-litoral.html" class="text-brand-600 underline hover:text-brand-700">hub de IA para corretores do litoral</a>. Para sua imobiliária, conheça também a <a href="/servicos/assessoria-imobiliaria" class="text-brand-600 underline hover:text-brand-700">assessoria imobiliária</a> e nossos <a href="/blog/cases" class="text-brand-600 underline hover:text-brand-700">cases reais</a>.</p>
+        </section>
+      </div>
+
+      <nav class="mt-12 border-t border-slate-200 pt-6" aria-label="Navegação do blog">
+        <a href="/blog" class="text-sm font-semibold text-brand-600 hover:text-brand-700">← Voltar para o blog</a>
+      </nav>
     </div>
   </article>
 
-  <section class="py-16">
-    <div class="container max-w-3xl space-y-10">
-      <p class="text-slate-600">
-        No litoral norte, a demanda é sazonal e a concorrência é rápida. Quem responde primeiro no WhatsApp leva a visita. A IA não substitui o corretor — ela garante que nenhum lead fique sem resposta e que o corretor gaste tempo apenas com quem está pronto para decidir.
-      </p>
-
-      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {usos.map((uso) => (
-          <div class="card">
-            <h2 class="text-base font-semibold">{uso.titulo}</h2>
-            <p class="mt-2 text-sm text-slate-600">{uso.texto}</p>
-          </div>
-        ))}
-      </div>
-
-      <div class="rounded-xl border border-slate-200 bg-slate-50 p-6">
-        <h2 class="text-lg font-semibold">Primeiros passos</h2>
-        <ol class="mt-3 list-decimal space-y-2 pl-5 text-sm text-slate-600">
-          <li>Mapeie onde os leads chegam hoje (WhatsApp, portais, Instagram).</li>
-          <li>Automatize a primeira resposta e a qualificação básica.</li>
-          <li>Padronize descrições de imóveis com prompts prontos.</li>
-          <li>Revise semanalmente: a IA propõe, o corretor aprova.</li>
-        </ol>
-        <p class="mt-4 text-sm text-slate-600">Prompts, scripts e automações prontos por cidade estão no nosso <a href="/hub/ia-corretores-litoral.html" class="text-brand-600 underline">hub de IA para corretores</a>.</p>
-      </div>
-
-      <p><a href="/blog" class="text-sm text-brand-600 underline">← Voltar ao blog</a></p>
+  <section class="border-t border-slate-200">
+    <div class="container py-16">
+      <LeadForm />
     </div>
   </section>
 </BaseLayout>

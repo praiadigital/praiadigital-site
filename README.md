@@ -1,6 +1,6 @@
 # PraiaDigital Site
 
-Site estático em Astro para PraiaDigital, com foco em SEO técnico, performance e conversão para inbound marketing de imóveis no litoral norte de São Paulo.
+Site estático em Astro para [PraiaDigital](https://praia.digital), com foco em SEO técnico, performance e conversão para inbound marketing de imóveis no litoral norte de São Paulo.
 
 ## Stack
 
@@ -20,7 +20,7 @@ npm run dev
 ## Variáveis de ambiente
 
 | Variável | Exemplo | Descrição |
-|---------|---------|-----------|
+|----------|---------|-----------|
 | `SITE_URL` | `https://praia.digital` | URL base do site |
 | `WHATSAPP_NUMBER` | `5511954346288` | Número para CTA/formulário |
 
@@ -35,6 +35,14 @@ src/
   data/         # cidades.ts
 public/
 ```
+
+## Estratégia de interlinks
+
+- Header/Footer: navegação global para serviços, blog, FAQ, contato
+- Home: seção de serviços + links contextuais em "Por que PraiaDigital"
+- Páginas de serviço: seção "Serviços relacionados" cruzando as 3 páginas + cases/FAQ/contato
+- Blog: index → cases e serviços; cases → serviços correspondentes
+- Sobre/Contato/FAQ: links contextuais nos textos + grade de serviços
 
 ## Deploy
 

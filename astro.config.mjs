@@ -1,12 +1,10 @@
 import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://praia.digital',
+  site: process.env.SITE_URL ?? 'https://praia.digital',
   trailingSlash: 'always',
   build: {
     format: 'file'
   },
-  compressHTML: true,
-  integrations: [sitemap()]
+  compressHTML: true
 });

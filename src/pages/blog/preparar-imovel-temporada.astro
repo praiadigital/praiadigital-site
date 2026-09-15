@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+
+const title = 'Como preparar seu imóvel para a temporada no litoral norte';
+const description = 'Checklist completo para preparar seu imóvel de temporada no litoral norte de SP: limpeza, manutenção, enxoval, fotos e apresentação que aumentam reservas.';
+const published = '2026-09-15';
+---
+
+<BaseLayout title={title} description={description} publishedTime={published} modifiedTime={published}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    datePublished: published,
+    dateModified: published,
+    inLanguage: "pt-BR",
+    author: { "@type": "Organization", name: "PraiaDigital", url: "https://praia.digital" },
+    publisher: { "@type": "Organization", name: "PraiaDigital", url: "https://praia.digital" }
+  })} />
+
+  <section class="border-b border-slate-200 bg-slate-50">
+    <div class="container py-16">
+      <div class="max-w-3xl">
+        <p class="text-sm font-semibold text-brand-600">Guia · Aluguel de temporada</p>
+        <h1 class="mt-4 text-4xl font-semibold tracking-tight">{title}</h1>
+        <p class="mt-4 text-lg text-slate-600">{description}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container">
+      <article class="max-w-3xl space-y-8 text-slate-600">
+        <div>
+          <h2 class="text-xl font-semibold text-slate-900">1. Limpeza profissional antes da primeira reserva</h2>
+          <p class="mt-2 text-sm">A primeira impressão define a avaliação do hóspede. Invista em uma limpeza profunda — vidros, banheiros, cozinha e área externa — antes de fotografar e publicar o anúncio. Em cidades como Ubatuba e São Sebastião, a maresia exige atenção redobrada com metais e esquadrias.</p>
+        </div>
+        <div>
+          <h2 class="text-xl font-semibold text-slate-900">2. Manutenção preventiva</h2>
+          <p class="mt-2 text-sm">Revise hidráulica, elétrica, telhado e pintura antes da alta temporada. Um chuveiro quebrado em janeiro custa mais caro que a revisão em outubro — e ainda gera avaliação negativa. Nossa <a href="/servicos/zeladoria-manutencao" class="text-brand-600 underline hover:text-brand-700">zeladoria local</a> faz inspeções periódicas com relatório fotográfico.</p>
+        </div>
+        <div>
+          <h2 class="text-xl font-semibold text-slate-900">3. Enxoval e comodidades</h2>
+          <p class="mt-2 text-sm">Roupas de cama e banho em bom estado, Wi-Fi estável, ventiladores ou ar-condicionado e uma cozinha funcional são o mínimo esperado. Itens como churrasqueira e rede na varanda aumentam o ticket médio no litoral norte.</p>
+        </div>
+        <div>
+          <h2 class="text-xl font-semibold text-slate-900">4. Fotos e apresentação do anúncio</h2>
+          <p class="mt-2 text-sm">Fotos claras, em horário de boa luz e com o imóvel arrumado aumentam significativamente a taxa de conversão. Veja nosso guia de <a href="/blog/fotos-que-vendem-mais" class="text-brand-600 underline hover:text-brand-700">fotos que vendem mais</a>.</p>
+        </div>
+        <div>
+          <h2 class="text-xl font-semibold text-slate-900">5. Precificação dinâmica</h2>
+          <p class="mt-2 text-sm">Ajuste preços por alta e baixa temporada, feriados e eventos locais. A <a href="/servicos/gestao-aluguel-temporada" class="text-brand-600 underline hover:text-brand-700">gestão de temporada</a> da PraiaDigital faz esse ajuste de forma contínua.</p>
+        </div>
+        <p class="text-sm">Quer aplicar tudo isso sem esforço? Veja nossos <a href="/blog/cases" class="text-brand-600 underline hover:text-brand-700">cases reais</a> ou fale com a equipe.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="border-t border-slate-200">
+    <div class="container py-16">
+      <LeadForm />
+    </div>
+  </section>
+</BaseLayout>

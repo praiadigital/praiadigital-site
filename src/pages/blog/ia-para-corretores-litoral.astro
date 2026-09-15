@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+
+const title = 'IA para corretores do litoral: por onde começar';
+const description = 'Como corretores e imobiliárias do litoral norte de SP usam IA para atendimento, conteúdo e follow-up — sem perder o toque humano.';
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="py-16">
+    <div class="container max-w-3xl">
+      <p class="text-sm font-semibold text-brand-600">Inteligência artificial</p>
+      <h1 class="mt-4 text-4xl font-semibold tracking-tight">{title}</h1>
+      <p class="mt-4 text-lg text-slate-600">{description}</p>
+
+      <div class="mt-10 space-y-8 text-slate-600">
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">O problema: lead esfriando no WhatsApp</h2>
+          <p class="mt-3">No litoral, a jornada do cliente é intensa e sazonal: em dezembro chove lead, em maio o silêncio. Quem responde em minutos converte; quem responde no dia seguinte perde para o concorrente. É aí que a IA entra — não para substituir o corretor, mas para garantir que nenhum lead fique sem resposta.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">Três usos práticos de IA</h2>
+          <ul class="mt-3 list-disc space-y-2 pl-6">
+            <li><strong class="text-slate-900">Atendimento:</strong> respostas imediatas no WhatsApp com qualificação automática (orçamento, cidade, período);</li>
+            <li><strong class="text-slate-900">Conteúdo:</strong> descrições de imóveis, legendas e títulos otimizados para buscas locais — veja nosso guia de <a href="/blog/palavras-chave-seo-litoral" class="text-brand-600 underline hover:text-brand-700">palavras-chave para o litoral</a>;</li>
+            <li><strong class="text-slate-900">Follow-up:</strong> lembretes e sequências de retorno para leads que pediram proposta e sumiram.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">Sempre com supervisão humana</h2>
+          <p class="mt-3">A IA acelera, mas quem fecha negócio é gente. Toda automação da PraiaDigital passa por revisão humana: a IA prepara, o corretor aprova e conduz. Assim você ganha velocidade sem perder a confiança que o mercado imobiliário exige.</p>
+        </section>
+
+        <section class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+          <h2 class="text-xl font-semibold text-slate-900">Explore as ferramentas</h2>
+          <p class="mt-2">Reunimos prompts, scripts e automações no <a href="/hub/ia-corretores-litoral.html" class="text-brand-600 underline hover:text-brand-700">hub de IA para corretores do litoral</a>. Para sua imobiliária, conheça também a <a href="/servicos/assessoria-imobiliaria" class="text-brand-600 underline hover:text-brand-700">assessoria imobiliária</a> e nossos <a href="/blog/cases" class="text-brand-600 underline hover:text-brand-700">cases reais</a>.</p>
+        </section>
+      </div>
+
+      <nav class="mt-12 border-t border-slate-200 pt-6" aria-label="Navegação do blog">
+        <a href="/blog" class="text-sm font-semibold text-brand-600 hover:text-brand-700">← Voltar para o blog</a>
+      </nav>
+    </div>
+  </article>
+
+  <section class="border-t border-slate-200">
+    <div class="container py-16">
+      <LeadForm />
+    </div>
+  </section>
+</BaseLayout>

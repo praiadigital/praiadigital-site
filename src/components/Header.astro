@@ -1,34 +1,38 @@
 ---
+const base = import.meta.env.BASE_URL; // e.g. '/praiadigital-site/'
 const whatsappNumber = import.meta.env.WHATSAPP_NUMBER ?? '5511954346288';
 const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 const pathname = Astro.url.pathname;
 
+const u = (path: string) => `${base}${path.replace(/^\//, '')}`;
+
 const servicos = [
-  { href: '/servicos/gestao-aluguel-temporada', label: 'Gestão de aluguel temporada' },
-  { href: '/servicos/assessoria-imobiliaria', label: 'Assessoria imobiliária' },
-  { href: '/servicos/zeladoria-manutencao', label: 'Zeladoria e manutenção' },
+  { href: u('/servicos/gestao-aluguel-temporada/'), label: 'Gestão de aluguel temporada' },
+  { href: u('/servicos/assessoria-imobiliaria/'), label: 'Assessoria imobiliária' },
+  { href: u('/servicos/zeladoria-manutencao/'), label: 'Zeladoria e manutenção' },
 ];
 
 const navLinks = [
-  { href: '/sobre', label: 'Sobre' },
-  { href: '/servicos', label: 'Serviços' },
-  { href: '/hub/ia-corretores-litoral.html', label: 'Hub IA' },
-  { href: '/blog', label: 'Conteúdos' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/contato', label: 'Contato' },
+  { href: u('/sobre/'), label: 'Sobre' },
+  { href: u('/servicos/'), label: 'Serviços' },
+  { href: u('/hub/ia-corretores-litoral.html'), label: 'Hub IA' },
+  { href: u('/blog/'), label: 'Conteúdos' },
+  { href: u('/faq/'), label: 'FAQ' },
+  { href: u('/contato/'), label: 'Contato' },
 ];
 
 function isActive(href: string): boolean {
-  if (href === '/blog') return pathname.startsWith('/blog');
-  if (href === '/servicos') return pathname.startsWith('/servicos');
-  if (href === '/hub/ia-corretores-litoral.html') return pathname.startsWith('/hub') || pathname.startsWith('/cidades');
-  return pathname.startsWith(href);
+  const path = href.replace(base, '/');
+  if (path.startsWith('/blog')) return pathname.includes('/blog');
+  if (path.startsWith('/servicos')) return pathname.includes('/servicos');
+  if (path.includes('/hub/')) return pathname.includes('/hub') || pathname.includes('/cidades');
+  return pathname.endsWith(path);
 }
 ---
 
 <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
   <div class="container py-4 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-2 font-semibold text-brand-600 text-lg" aria-label="PraiaDigital — página inicial">
+    <a href={base} class="flex items-center gap-2 font-semibold text-brand-600 text-lg" aria-label="PraiaDigital — página inicial">
       <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-brand-600 text-white" aria-hidden="true">P</span>
       <span>PraiaDigital</span>
     </a>

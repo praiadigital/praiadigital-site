@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+
+const title = 'Calendário de preparação para a alta temporada no litoral';
+const description = 'O que fazer mês a mês para seu imóvel no litoral norte de SP chegar pronto e anunciado na alta temporada de verão.';
+const publishedTime = '2026-09-15';
+const modifiedTime = '2026-09-15';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  inLanguage: 'pt-BR',
+  datePublished: publishedTime,
+  dateModified: modifiedTime,
+  author: { '@type': 'Organization', name: 'PraiaDigital', url: 'https://praia.digital' },
+  publisher: { '@type': 'Organization', name: 'PraiaDigital', url: 'https://praia.digital' },
+  mainEntityOfPage: 'https://praia.digital/blog/calendario-alta-temporada-litoral',
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(articleSchema)} />
+
+  <article class="py-16">
+    <div class="container max-w-3xl">
+      <p class="text-sm font-semibold text-brand-600">Planejamento</p>
+      <h1 class="mt-4 text-4xl font-semibold tracking-tight">{title}</h1>
+      <p class="mt-2 text-sm text-slate-500">Publicado em <time datetime={publishedTime}>15 de setembro de 2026</time></p>
+      <p class="mt-4 text-lg text-slate-600">{description}</p>
+
+      <div class="mt-10 space-y-8 text-slate-600">
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">Setembro a outubro: estrutura</h2>
+          <p class="mt-3">É agora. A alta temporada começa em dezembro, e quem deixa para novembro perde as melhores reservas. Nesta fase, foque em:</p>
+          <ul class="mt-3 list-disc space-y-2 pl-6">
+            <li>Manutenção corretiva e preventiva completa — use o nosso <a href="/blog/como-preparar-imovel-temporada" class="text-brand-600 underline hover:text-brand-700">checklist de preparação</a>;</li>
+            <li>Revisão de enxoval e compra de itens faltantes;</li>
+            <li>Definição de preços por período (Natal, Réveillon, janeiro e feriados têm tarifas diferentes).</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">Novembro: anúncio e visibilidade</h2>
+          <ul class="mt-3 list-disc space-y-2 pl-6">
+            <li>Fotos novas com luz boa — veja o guia de <a href="/blog/fotos-que-vendem-mais" class="text-brand-600 underline hover:text-brand-700">fotos que vendem mais</a>;</li>
+            <li>Descrição otimizada com as <a href="/blog/palavras-chave-seo-litoral" class="text-brand-600 underline hover:text-brand-700">palavras-chave certas para o litoral</a>;</li>
+            <li>Ative resposta rápida: na temporada, quem responde primeiro fecha. Nosso <a href="/hub/ia-corretores-litoral.html" class="text-brand-600 underline hover:text-brand-700">hub de IA</a> tem prompts prontos para isso.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">Dezembro a fevereiro: operação</h2>
+          <p class="mt-3">Durante a temporada, o jogo é operação impecável: limpeza entre estadias, check-in sem fricção e resposta em minutos. É o período em que as avaliações do próximo ano são construídas.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">Março em diante: baixa temporada inteligente</h2>
+          <p class="mt-3">Use a baixa temporada para manutenção programada, fotos atualizadas e captação de reservas antecipadas para feriados. Imóveis bem avaliados na alta enchem a agenda da baixa.</p>
+        </section>
+
+        <section class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+          <h2 class="text-xl font-semibold text-slate-900">Prefere delegar o calendário inteiro?</h2>
+          <p class="mt-2">A <a href="/servicos/gestao-aluguel-temporada" class="text-brand-600 underline hover:text-brand-700">gestão de temporada</a> da PraiaDigital cuida de precificação, anúncios e operação em <a href="/cidades/sao-sebastiao" class="text-brand-600 underline hover:text-brand-700">São Sebastião</a>, <a href="/cidades/ubatuba" class="text-brand-600 underline hover:text-brand-700">Ubatuba</a>, <a href="/cidades/caraguatatuba" class="text-brand-600 underline hover:text-brand-700">Caraguatatuba</a> e <a href="/cidades/ilhabela" class="text-brand-600 underline hover:text-brand-700">Ilhabela</a>. Veja nossos <a href="/blog/cases" class="text-brand-600 underline hover:text-brand-700">resultados</a>.</p>
+        </section>
+      </div>
+
+      <nav class="mt-12 border-t border-slate-200 pt-6" aria-label="Navegação do blog">
+        <a href="/blog" class="text-sm font-semibold text-brand-600 hover:text-brand-700">← Voltar para o blog</a>
+      </nav>
+    </div>
+  </article>
+
+  <section class="border-t border-slate-200">
+    <div class="container py-16">
+      <LeadForm />
+    </div>
+  </section>
+</BaseLayout>

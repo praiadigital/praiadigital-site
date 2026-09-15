@@ -6,29 +6,40 @@
     <description>Guias e conteúdos sobre aluguel temporada, imóveis no litoral norte de SP, SEO local e inbound marketing imobiliário.</description>
     <language>pt-BR</language>
     <item>
-      <title>Como preparar o imóvel para temporada</title>
-      <link>https://praia.digital/blog/como-preparar-imovel-temporada</link>
-      <description>Checklist completo: limpeza, manutenção, enxoval e apresentação.</description>
-    </item>
-    <item>
-      <title>Fotos que vendem mais</title>
-      <link>https://praia.digital/blog/fotos-que-vendem-mais</link>
-      <description>Direção de arte simples para anúncios de temporada que convertem.</description>
-    </item>
-    <item>
-      <title>Palavras-chave para o litoral</title>
-      <link>https://praia.digital/blog/palavras-chave-seo-litoral</link>
-      <description>As intenções de busca que geram reservas e vendas no litoral norte.</description>
+      <title>Calendário de preparação para a alta temporada no litoral</title>
+      <link>https://praia.digital/blog/calendario-alta-temporada-litoral</link>
+      <description>O que fazer mês a mês para seu imóvel chegar pronto e anunciado na alta temporada de verão.</description>
+      <pubDate>Tue, 15 Sep 2026 12:00:00 GMT</pubDate>
     </item>
     <item>
       <title>IA para corretores do litoral: por onde começar</title>
       <link>https://praia.digital/blog/ia-para-corretores-litoral</link>
       <description>Atendimento, conteúdo e follow-up com IA — sem perder o toque humano.</description>
+      <pubDate>Mon, 14 Sep 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Palavras-chave para o litoral</title>
+      <link>https://praia.digital/blog/palavras-chave-seo-litoral</link>
+      <description>As intenções de busca que geram reservas e vendas no litoral norte.</description>
+      <pubDate>Sat, 12 Sep 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Fotos que vendem mais</title>
+      <link>https://praia.digital/blog/fotos-que-vendem-mais</link>
+      <description>Direção de arte simples para anúncios de temporada que convertem.</description>
+      <pubDate>Thu, 10 Sep 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Como preparar o imóvel para temporada</title>
+      <link>https://praia.digital/blog/como-preparar-imovel-temporada</link>
+      <description>Checklist completo: limpeza, manutenção, enxoval e apresentação.</description>
+      <pubDate>Tue, 08 Sep 2026 12:00:00 GMT</pubDate>
     </item>
     <item>
       <title>Cases e resultados</title>
       <link>https://praia.digital/blog/cases</link>
       <description>Números reais de clientes PraiaDigital no litoral norte de SP.</description>
+      <pubDate>Sat, 05 Sep 2026 12:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>

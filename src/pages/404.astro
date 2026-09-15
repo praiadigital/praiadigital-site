@@ -2,27 +2,33 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Página não encontrada" description="A página que você procura não existe ou foi movida. Encontre nossos serviços e conteúdos sobre imóveis no litoral norte de SP." noindex>
-  <section class="border-b border-slate-200">
-    <div class="container py-16 md:py-24">
-      <p class="text-sm font-semibold text-brand-600">Erro 404</p>
-      <h1 class="mt-4 text-4xl font-semibold tracking-tight">Página não encontrada</h1>
-      <p class="mt-4 max-w-2xl text-lg text-slate-600">
-        A página que você procura não existe ou foi movida. Que tal seguir por um destes caminhos?
-      </p>
-      <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-        <a href="/" class="rounded-xl border border-slate-200 p-5 hover:border-slate-300">
-          <p class="text-sm font-semibold text-slate-900">Página inicial</p>
-          <p class="mt-1 text-sm text-slate-600">Visão geral dos serviços e resultados.</p>
-        </a>
-        <a href="/servicos/gestao-aluguel-temporada" class="rounded-xl border border-slate-200 p-5 hover:border-slate-300">
-          <p class="text-sm font-semibold text-slate-900">Gestão de temporada</p>
-          <p class="mt-1 text-sm text-slate-600">Mais reservas para seu imóvel no litoral.</p>
-        </a>
-        <a href="/contato" class="rounded-xl border border-slate-200 p-5 hover:border-slate-300">
-          <p class="text-sm font-semibold text-slate-900">Contato</p>
-          <p class="mt-1 text-sm text-slate-600">Fale com a equipe pelo WhatsApp.</p>
-        </a>
+<BaseLayout title="Página não encontrada" description="A página que você procura não existe ou foi movida." noindex>
+  <section class="py-16 md:py-24">
+    <div class="container">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold text-brand-600">Erro 404</p>
+        <h1 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Página não encontrada</h1>
+        <p class="mt-4 text-lg text-slate-600">
+          A página que você procura não existe ou foi movida. Explore uma das opções abaixo:
+        </p>
+        <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <a href="/" class="rounded-xl border border-slate-200 p-5 hover:border-slate-300">
+            <p class="text-sm font-semibold text-slate-900">Página inicial</p>
+            <p class="mt-1 text-sm text-slate-600">Volte para a home da PraiaDigital.</p>
+          </a>
+          <a href="/servicos/gestao-aluguel-temporada" class="rounded-xl border border-slate-200 p-5 hover:border-slate-300">
+            <p class="text-sm font-semibold text-slate-900">Gestão de temporada</p>
+            <p class="mt-1 text-sm text-slate-600">Receita o ano todo com seu imóvel.</p>
+          </a>
+          <a href="/blog" class="rounded-xl border border-slate-200 p-5 hover:border-slate-300">
+            <p class="text-sm font-semibold text-slate-900">Blog</p>
+            <p class="mt-1 text-sm text-slate-600">Guias e materiais para o litoral.</p>
+          </a>
+          <a href="/contato" class="rounded-xl border border-slate-200 p-5 hover:border-slate-300">
+            <p class="text-sm font-semibold text-slate-900">Contato</p>
+            <p class="mt-1 text-sm text-slate-600">Fale com nossa equipe pelo WhatsApp.</p>
+          </a>
+        </div>
       </div>
     </div>
   </section>

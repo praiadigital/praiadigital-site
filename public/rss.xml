@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>PraiaDigital — Blog</title>
+    <link>https://praia.digital/blog</link>
+    <description>Guias e conteúdos sobre aluguel temporada, imóveis no litoral norte de SP, SEO local e inbound marketing imobiliário.</description>
+    <language>pt-BR</language>
+    <item>
+      <title>Como preparar o imóvel para temporada</title>
+      <link>https://praia.digital/blog/como-preparar-imovel-temporada</link>
+      <description>Checklist completo: limpeza, manutenção, enxoval e apresentação.</description>
+    </item>
+    <item>
+      <title>Fotos que vendem mais</title>
+      <link>https://praia.digital/blog/fotos-que-vendem-mais</link>
+      <description>Direção de arte simples para anúncios de temporada que convertem.</description>
+    </item>
+    <item>
+      <title>Palavras-chave para o litoral</title>
+      <link>https://praia.digital/blog/palavras-chave-seo-litoral</link>
+      <description>As intenções de busca que geram reservas e vendas no litoral norte.</description>
+    </item>
+    <item>
+      <title>IA para corretores do litoral: por onde começar</title>
+      <link>https://praia.digital/blog/ia-para-corretores-litoral</link>
+      <description>Atendimento, conteúdo e follow-up com IA — sem perder o toque humano.</description>
+    </item>
+    <item>
+      <title>Cases e resultados</title>
+      <link>https://praia.digital/blog/cases</link>
+      <description>Números reais de clientes PraiaDigital no litoral norte de SP.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,10 +1,15 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
+// GitHub Pages serves this repo under the /praiadigital-site subpath.
+// `base` makes Astro prefix every root-absolute href/src in templates automatically.
 export default defineConfig({
-  site: process.env.SITE_URL ?? 'https://praia.digital',
+  site: 'https://praiadigital.github.io',
+  base: '/praiadigital-site',
   trailingSlash: 'always',
   build: {
-    format: 'file'
+    format: 'directory'
   },
-  compressHTML: true
+  compressHTML: true,
+  integrations: [sitemap()]
 });

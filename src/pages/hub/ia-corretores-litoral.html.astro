@@ -3,12 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import LeadForm from '../../components/LeadForm.astro';
 import { cidades } from '../../data/cidades.ts';
 
-const title = 'Hub de IA para Corretores do Litoral — PraiaDigital';
-const description = 'Ferramentas, prompts, automações e estratégias de IA para corretores e imobiliárias do litoral norte de São Paulo.';
+const title = 'Hub de IA para corretores do litoral norte de SP';
+const description = 'Ferramentas, prompts, automações e estratégias de IA para corretores e imobiliárias do litoral norte de São Paulo: Ubatuba, São Sebastião, Caraguatatuba e Ilhabela.';
 const canonical = 'https://praia.digital/hub/ia-corretores-litoral.html';
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} image="https://praia.digital/img/og/hub-ia-corretores.jpg">
+<BaseLayout title={title} description={description} canonical={canonical} image="https://praia.digital/img/og-default.png">
   <section class="border-b border-slate-200 bg-slate-50">
     <div class="container py-16 md:py-24">
       <div class="max-w-2xl">
@@ -30,17 +30,14 @@ const canonical = 'https://praia.digital/hub/ia-corretores-litoral.html';
         <article class="rounded-xl border border-slate-200 p-6">
           <h3 class="text-base font-semibold">Atendimento</h3>
           <p class="mt-2 text-sm text-slate-600">Scripts e fluxos de atendimento por WhatsApp com IA.</p>
-          <p class="mt-3 text-sm"><a href="/servicos/gestao-aluguel-temporada" class="font-semibold text-brand-600 underline hover:text-brand-700">Gestão de temporada →</a></p>
         </article>
         <article class="rounded-xl border border-slate-200 p-6">
           <h3 class="text-base font-semibold">Conteúdo</h3>
           <p class="mt-2 text-sm text-slate-600">Prompts para textos, legendas, títulos e SEO local.</p>
-          <p class="mt-3 text-sm"><a href="/blog" class="font-semibold text-brand-600 underline hover:text-brand-700">Guias do blog →</a></p>
         </article>
         <article class="rounded-xl border border-slate-200 p-6">
           <h3 class="text-base font-semibold">Conversão</h3>
           <p class="mt-2 text-sm text-slate-600">Modelos de follow-up, proposta e fechamento com IA.</p>
-          <p class="mt-3 text-sm"><a href="/servicos/assessoria-imobiliaria" class="font-semibold text-brand-600 underline hover:text-brand-700">Assessoria imobiliária →</a></p>
         </article>
       </div>
     </div>
@@ -59,7 +56,6 @@ const canonical = 'https://praia.digital/hub/ia-corretores-litoral.html';
           </a>
         ))}
       </div>
-      <p class="mt-6 text-sm text-slate-600">Veja também nossos <a href="/blog/cases" class="text-brand-600 underline hover:text-brand-700">cases reais</a> e as <a href="/faq" class="text-brand-600 underline hover:text-brand-700">perguntas frequentes</a>.</p>
     </div>
   </section>
 

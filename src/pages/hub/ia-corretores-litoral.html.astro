@@ -49,7 +49,7 @@ const canonical = 'https://praia.digital/hub/ia-corretores-litoral.html';
       <p class="mt-2 text-sm text-slate-600">Ferramentas específicas para as principais cidades do litoral norte.</p>
       <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {cidades.map((cidade) => (
-          <a href={`/hub/ia-corretores-litoral.html?cidade=${cidade.slug}`} class="rounded-xl border border-slate-200 p-5 hover:border-slate-300">
+          <a href={`/cidades/${cidade.slug}`} class="rounded-xl border border-slate-200 p-5 hover:border-slate-300">
             <p class="text-sm font-semibold text-brand-600">{cidade.regiao}</p>
             <p class="mt-1 text-base font-semibold text-slate-900">{cidade.nome}</p>
             <p class="mt-2 text-sm text-slate-600">Ferramentas e prompts para corretores locais.</p>

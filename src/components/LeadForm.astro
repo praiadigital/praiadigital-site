@@ -1,5 +1,6 @@
 ---
 const whatsappNumber = import.meta.env.WHATSAPP_NUMBER ?? '5511954346288';
+const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 const formTitle = 'Receba um diagnóstico gratuito do seu imóvel';
 const formSubtitle = 'Em até 1 dia útil, um especialista analisa seu caso e responde no seu WhatsApp. Sem compromisso.';
 ---
@@ -10,8 +11,8 @@ const formSubtitle = 'Em até 1 dia útil, um especialista analisa seu caso e re
     <p class="mt-2 text-slate-600">{formSubtitle}</p>
 
     <form
-      id="lead-form"
-      data-whatsapp={whatsappNumber}
+      id="pd-lead-form"
+      data-whatsapp={whatsappUrl}
       class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2"
     >
       <div class="md:col-span-2">
@@ -44,26 +45,31 @@ const formSubtitle = 'Em até 1 dia útil, um especialista analisa seu caso e re
         <button type="submit" class="inline-flex w-full items-center justify-center gap-2 rounded-md bg-brand-600 px-4 py-3 text-sm font-semibold text-white shadow hover:bg-brand-700 md:w-auto">
           Quero meu diagnóstico gratuito
         </button>
+        <p id="pd-form-hint" class="mt-2 hidden text-sm text-brand-600">Abrindo o WhatsApp com sua mensagem…</p>
       </div>
     </form>
   </div>
 </section>
 
 <script>
-  const form = document.getElementById('lead-form');
+  const form = document.getElementById('pd-lead-form');
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
     const data = new FormData(form as HTMLFormElement);
-    const number = (form as HTMLElement).dataset.whatsapp ?? '5511954346288';
+    const name = String(data.get('name') || '').trim();
+    const phone = String(data.get('phone') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const message = String(data.get('message') || '').trim();
+
     const lines = [
-      'Novo diagnóstico pelo site PraiaDigital:',
-      '',
-      `Nome: ${data.get('name') ?? ''}`,
-      `WhatsApp: ${data.get('phone') ?? ''}`,
-      `E-mail: ${data.get('email') ?? ''}`,
-      `Mensagem: ${data.get('message') ?? ''}`,
-    ];
-    const url = `https://wa.me/${number}?text=${encodeURIComponent(lines.join('\n'))}`;
+      `Olá! Sou ${name} e quero um diagnóstico gratuito do meu imóvel.`,
+      phone && `Meu WhatsApp: ${phone}`,
+      email && `Meu e-mail: ${email}`,
+      message && `Sobre o imóvel: ${message}`,
+    ].filter(Boolean);
+
+    const url = `${form.getAttribute('data-whatsapp')}?text=${encodeURIComponent(lines.join('\n'))}`;
+    document.getElementById('pd-form-hint')?.classList.remove('hidden');
     window.open(url, '_blank', 'noopener');
   });
 </script>

@@ -1,17 +1,21 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LeadForm from '../../components/LeadForm.astro';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Zeladoria e manutenção',
+  description: 'Zeladoria, manutenção preventiva, suporte local e atendimento emergencial para imóveis no litoral norte de SP.',
+  provider: { '@type': 'Organization', name: 'PraiaDigital', url: 'https://praia.digital' },
+  areaServed: ['Ubatuba', 'Caraguatatuba', 'São Sebastião', 'Ilhabela'],
+  url: 'https://praia.digital/servicos/zeladoria-manutencao',
+};
 ---
 
-<BaseLayout title="Zeladoria e manutenção de imóveis no litoral norte de SP" description="Zeladoria, inspeções com relatório fotográfico, manutenção preventiva e atendimento emergencial para imóveis no litoral norte de SP — ideal para proprietários à distância.">
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Zeladoria e manutenção de imóveis",
-    provider: { "@type": "ProfessionalService", name: "PraiaDigital", url: "https://praia.digital" },
-    areaServed: ["Ubatuba", "São Sebastião", "Caraguatatuba", "Ilhabela"],
-    description: "Zeladoria local com inspeções periódicas, relatório fotográfico, manutenção preventiva e atendimento emergencial para imóveis no litoral norte de São Paulo."
-  })} />
+<BaseLayout title="Zeladoria e manutenção" description="Zeladoria, manutenção preventiva, suporte local e atendimento emergencial para imóveis no litoral norte de SP.">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(serviceSchema)} />
+
   <section class="border-b border-slate-200">
     <div class="container py-16">
       <h1 class="text-3xl font-semibold tracking-tight">Seu imóvel sempre pronto, mesmo com você longe</h1>
@@ -58,6 +62,7 @@ import LeadForm from '../../components/LeadForm.astro';
           <p class="mt-1 text-sm text-slate-600">Solicite uma proposta de zeladoria para o seu imóvel.</p>
         </a>
       </div>
+      <p class="mt-6 text-sm text-slate-600">Leia também: <a href="/blog/como-preparar-imovel-temporada" class="text-brand-600 underline hover:text-brand-700">checklist de manutenção para temporada</a>.</p>
     </div>
   </section>
 

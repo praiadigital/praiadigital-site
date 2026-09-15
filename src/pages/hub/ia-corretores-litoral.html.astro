@@ -8,13 +8,13 @@ const description = 'Ferramentas, prompts, automações e estratégias de IA par
 const canonical = 'https://praia.digital/hub/ia-corretores-litoral.html';
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} image="https://praia.digital/img/og/hub-ia-corretores.png">
+<BaseLayout title={title} description={description} canonical={canonical} image="https://praia.digital/img/og-default.png">
   <section class="border-b border-slate-200 bg-slate-50">
     <div class="container py-16 md:py-24">
       <div class="max-w-2xl">
         <p class="text-sm font-semibold text-brand-600">Ferramentas para corretores</p>
-        <h1 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl" id="hub-title">Hub de IA para corretores do litoral</h1>
-        <p class="mt-4 text-lg text-slate-600" id="hub-subtitle">{description}</p>
+        <h1 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">Hub de IA para corretores do litoral</h1>
+        <p class="mt-4 text-lg text-slate-600">{description}</p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a href="#ferramentas" class="rounded-md bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-brand-700">Ver ferramentas</a>
           <a href="#contato" class="rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:border-slate-400">Testar as ferramentas no meu WhatsApp</a>
@@ -49,7 +49,7 @@ const canonical = 'https://praia.digital/hub/ia-corretores-litoral.html';
       <p class="mt-2 text-sm text-slate-600">Ferramentas específicas para as principais cidades do litoral norte.</p>
       <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {cidades.map((cidade) => (
-          <a href={`/hub/ia-corretores-litoral.html?cidade=${cidade.slug}`} class="rounded-xl border border-slate-200 p-5 hover:border-slate-300" data-cidade={cidade.slug}>
+          <a href={`/hub/ia-corretores-litoral.html?cidade=${cidade.slug}`} class="rounded-xl border border-slate-200 p-5 hover:border-slate-300">
             <p class="text-sm font-semibold text-brand-600">{cidade.regiao}</p>
             <p class="mt-1 text-base font-semibold text-slate-900">{cidade.nome}</p>
             <p class="mt-2 text-sm text-slate-600">Ferramentas e prompts para corretores locais.</p>
@@ -85,24 +85,3 @@ const canonical = 'https://praia.digital/hub/ia-corretores-litoral.html';
     </div>
   </section>
 </BaseLayout>
-
-<script>
-  const nomes = {
-    'sao-sebastiao': 'São Sebastião',
-    ubatuba: 'Ubatuba',
-    caraguatatuba: 'Caraguatatuba',
-    ilhabela: 'Ilhabela',
-  };
-  const cidade = new URLSearchParams(window.location.search).get('cidade');
-  const nome = cidade ? nomes[cidade as keyof typeof nomes] : null;
-  if (nome) {
-    const titleEl = document.getElementById('hub-title');
-    const subtitleEl = document.getElementById('hub-subtitle');
-    if (titleEl) titleEl.textContent = `Hub de IA para corretores em ${nome}`;
-    if (subtitleEl) subtitleEl.textContent = `Ferramentas, prompts, automações e estratégias de IA para corretores e imobiliárias de ${nome} e região.`;
-    document.title = `IA para corretores em ${nome} — PraiaDigital`;
-    document.querySelectorAll('[data-cidade]').forEach((card) => {
-      card.classList.toggle('border-brand-500', (card as HTMLElement).dataset.cidade === cidade);
-    });
-  }
-</script>

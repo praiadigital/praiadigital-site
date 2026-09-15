@@ -1,17 +1,21 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LeadForm from '../../components/LeadForm.astro';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Gestão de aluguel por temporada',
+  description: 'Gestão profissional de aluguel temporada no litoral norte de SP: canais, reservas, preço e experiência do hóspede.',
+  provider: { '@type': 'Organization', name: 'PraiaDigital', url: 'https://praia.digital' },
+  areaServed: ['Ubatuba', 'Caraguatatuba', 'São Sebastião', 'Ilhabela'],
+  url: 'https://praia.digital/servicos/gestao-aluguel-temporada',
+};
 ---
 
-<BaseLayout title="Gestão de aluguel por temporada no litoral norte de SP" description="Gestão profissional de aluguel de temporada no litoral norte de SP: anúncios otimizados, reservas, precificação dinâmica e experiência do hóspede em Ubatuba, São Sebastião, Caraguatatuba e Ilhabela.">
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Gestão de aluguel por temporada",
-    provider: { "@type": "ProfessionalService", name: "PraiaDigital", url: "https://praia.digital" },
-    areaServed: ["Ubatuba", "São Sebastião", "Caraguatatuba", "Ilhabela"],
-    description: "Gestão completa de aluguel de temporada: anúncios, reservas, precificação dinâmica, comunicação com hóspedes e operação local no litoral norte de São Paulo."
-  })} />
+<BaseLayout title="Gestão de aluguel por temporada" description="Gestão profissional de aluguel temporada no litoral norte de SP: canais, reservas, preço e experiência do hóspede.">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(serviceSchema)} />
+
   <section class="border-b border-slate-200">
     <div class="container py-16">
       <h1 class="text-3xl font-semibold tracking-tight">Seu imóvel alugado o ano todo, sem você mover um dedo</h1>
@@ -58,6 +62,7 @@ import LeadForm from '../../components/LeadForm.astro';
           <p class="mt-1 text-sm text-slate-600">Veja resultados reais de gestão de temporada no litoral.</p>
         </a>
       </div>
+      <p class="mt-6 text-sm text-slate-600">Leia também: <a href="/blog/como-preparar-imovel-temporada" class="text-brand-600 underline hover:text-brand-700">como preparar o imóvel para temporada</a>.</p>
     </div>
   </section>
 

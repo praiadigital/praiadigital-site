@@ -3,7 +3,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import LeadForm from '../../components/LeadForm.astro';
 ---
 
-<BaseLayout title="Zeladoria e manutenção" description="Zeladoria, manutenção preventiva, suporte local e atendimento emergencial para imóveis no litoral norte de SP.">
+<BaseLayout title="Zeladoria e manutenção de imóveis no litoral norte de SP" description="Zeladoria, inspeções com relatório fotográfico, manutenção preventiva e atendimento emergencial para imóveis no litoral norte de SP — ideal para proprietários à distância.">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Zeladoria e manutenção de imóveis",
+    provider: { "@type": "ProfessionalService", name: "PraiaDigital", url: "https://praia.digital" },
+    areaServed: ["Ubatuba", "São Sebastião", "Caraguatatuba", "Ilhabela"],
+    description: "Zeladoria local com inspeções periódicas, relatório fotográfico, manutenção preventiva e atendimento emergencial para imóveis no litoral norte de São Paulo."
+  })} />
   <section class="border-b border-slate-200">
     <div class="container py-16">
       <h1 class="text-3xl font-semibold tracking-tight">Seu imóvel sempre pronto, mesmo com você longe</h1>

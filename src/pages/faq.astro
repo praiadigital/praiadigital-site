@@ -15,7 +15,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <dl class="max-w-3xl divide-y divide-slate-200">
         <div class="py-6">
           <dt class="text-base font-semibold text-slate-900">Como funciona o atendimento inicial?</dt>
-          <dd class="mt-2 text-sm text-slate-600">Você preenche o formulário ou envia mensagem pelo WhatsApp. Um especialista responde em até um dia útil.</dd>
+          <dd class="mt-2 text-sm text-slate-600">Você preenche o formulário na página de <a href="/contato" class="text-brand-600 underline hover:text-brand-700">contato</a> ou envia mensagem pelo WhatsApp. Um especialista responde em até um dia útil.</dd>
         </div>
         <div class="py-6">
           <dt class="text-base font-semibold text-slate-900">Quais cidades atendem?</dt>
@@ -27,7 +27,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         <div class="py-6">
           <dt class="text-base font-semibold text-slate-900">Vocês cuidam do imóvel se eu morar em outra cidade?</dt>
-          <dd class="mt-2 text-sm text-slate-600">Sim. A zeladoria local inclui inspeções periódicas com relatório fotográfico, manutenção preventiva e atendimento emergencial — você acompanha tudo à distância.</dd>
+          <dd class="mt-2 text-sm text-slate-600">Sim. A <a href="/servicos/zeladoria-manutencao" class="text-brand-600 underline hover:text-brand-700">zeladoria local</a> inclui inspeções periódicas com relatório fotográfico, manutenção preventiva e atendimento emergencial — você acompanha tudo à distância.</dd>
         </div>
         <div class="py-6">
           <dt class="text-base font-semibold text-slate-900">Como a IA é usada no atendimento?</dt>
@@ -38,6 +38,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <dd class="mt-2 text-sm text-slate-600">As condições de vigência e cancelamento são definidas de forma transparente na proposta, antes de qualquer contratação.</dd>
         </div>
       </dl>
+    </div>
+  </section>
+
+  <section class="border-t border-slate-200 bg-slate-50">
+    <div class="container py-12">
+      <h2 class="text-xl font-semibold">Explore mais</h2>
+      <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+        <a href="/servicos/gestao-aluguel-temporada" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300">
+          <p class="text-sm font-semibold text-slate-900">Gestão de temporada</p>
+          <p class="mt-1 text-sm text-slate-600">Anúncios, reservas e precificação dinâmica.</p>
+        </a>
+        <a href="/blog/cases" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300">
+          <p class="text-sm font-semibold text-slate-900">Cases e resultados</p>
+          <p class="mt-1 text-sm text-slate-600">Resultados reais de clientes no litoral.</p>
+        </a>
+        <a href="/contato" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300">
+          <p class="text-sm font-semibold text-slate-900">Fale com a equipe</p>
+          <p class="mt-1 text-sm text-slate-600">Resposta em até 1 dia útil pelo WhatsApp.</p>
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>

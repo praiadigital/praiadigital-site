@@ -2,7 +2,11 @@
   "cleanUrls": false,
   "redirects": [
     { "source": "/hub/ia-corretores-litoral", "destination": "/hub/ia-corretores-litoral.html", "permanent": true },
-    { "source": "/hub/ia-corretores-litoral/", "destination": "/hub/ia-corretores-litoral.html", "permanent": true }
+    { "source": "/hub/ia-corretores-litoral/", "destination": "/hub/ia-corretores-litoral.html", "permanent": true },
+    { "source": "/hub/sao-sebastiao", "destination": "/hub/sao-sebastiao.html", "permanent": true },
+    { "source": "/hub/ubatuba", "destination": "/hub/ubatuba.html", "permanent": true },
+    { "source": "/hub/caraguatatuba", "destination": "/hub/caraguatatuba.html", "permanent": true },
+    { "source": "/hub/ilhabela", "destination": "/hub/ilhabela.html", "permanent": true }
   ],
   "rewrites": [
     { "source": "/blog.html", "destination": "/blog.html" },

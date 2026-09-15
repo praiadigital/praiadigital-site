@@ -1,65 +1,60 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import LeadForm from '../../components/LeadForm.astro';
-import { cidades } from '../../data/cidades.ts';
 
-const title = 'Palavras-chave para o litoral';
-const description = 'As intenções de busca que geram reservas e vendas de imóveis no litoral norte de SP — e como aparecer no Google para cada uma delas.';
+const grupos = [
+  {
+    titulo: 'Busca por temporada',
+    termos: ['casa de temporada em Ubatuba', 'apartamento para temporada em Caraguatatuba', 'aluguel de temporada pé na areia', 'casa com piscina para temporada no litoral norte'],
+  },
+  {
+    titulo: 'Busca por compra e venda',
+    termos: ['apartamento à venda em São Sebastião', 'casas à venda em Ilhabela', 'imóvel no litoral norte com vista para o mar', 'terreno à venda em Ubatuba'],
+  },
+  {
+    titulo: 'Busca por serviços e gestão',
+    termos: ['administradora de temporada no litoral norte', 'zeladoria de imóveis em Caraguatatuba', 'gestão de airbnb em Ubatuba', 'avaliação de imóvel no litoral'],
+  },
+];
 ---
 
-<BaseLayout title={title} description={description}>
-  <article class="py-16">
-    <div class="container max-w-3xl">
-      <p class="text-sm font-semibold text-brand-600">SEO local</p>
-      <h1 class="mt-4 text-4xl font-semibold tracking-tight">{title}</h1>
-      <p class="mt-4 text-lg text-slate-600">{description}</p>
-
-      <div class="mt-10 space-y-8 text-slate-600">
-        <section>
-          <h2 class="text-2xl font-semibold text-slate-900">Como o cliente busca imóvel no litoral</h2>
-          <p class="mt-3">Quem procura imóvel no litoral norte de SP quase sempre combina três elementos na busca: <strong class="text-slate-900">tipo de imóvel</strong> + <strong class="text-slate-900">cidade ou praia</strong> + <strong class="text-slate-900">intenção</strong> (temporada, venda, investimento). Exemplos reais de padrões:</p>
-          <ul class="mt-3 list-disc space-y-2 pl-6">
-            <li>“apartamento temporada em Ubatuba pé na areia”;</li>
-            <li>“casa para comprar em São Sebastião perto da praia”;</li>
-            <li>“imóvel para investir no litoral norte de SP”;</li>
-            <li>“administração de aluguel de temporada em Caraguatatuba”.</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 class="text-2xl font-semibold text-slate-900">Os três grupos de intenção</h2>
-          <ul class="mt-3 list-disc space-y-2 pl-6">
-            <li><strong class="text-slate-900">Temporada:</strong> buscas com datas, feriados e “quantas pessoas”. Convertem rápido — resposta em minutos faz diferença;</li>
-            <li><strong class="text-slate-900">Compra:</strong> buscas de comparação (“vale a pena comprar em Ilhabela?”). Pedem conteúdo educativo e confiança;</li>
-            <li><strong class="text-slate-900">Proprietário:</strong> quem tem imóvel e quer renda — busca por gestão, administração e rentabilidade.</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 class="text-2xl font-semibold text-slate-900">Cidade por cidade</h2>
-          <p class="mt-3">Cada mercado do litoral norte tem suas próprias buscas. Trabalhamos conteúdo e IA específicos para:</p>
-          <ul class="mt-3 list-disc space-y-2 pl-6">
-            {cidades.map((cidade) => (
-              <li><a href={`/hub/ia-corretores-litoral.html?cidade=${cidade.slug}`} class="text-brand-600 underline hover:text-brand-700">{cidade.nome}</a> — ferramentas e prompts locais para corretores.</li>
-            ))}
-          </ul>
-        </section>
-
-        <section class="rounded-xl border border-slate-200 bg-slate-50 p-6">
-          <h2 class="text-xl font-semibold text-slate-900">Quer aparecer nessas buscas?</h2>
-          <p class="mt-2">Combinamos SEO local, conteúdo e automação para imobiliárias e proprietários. Veja nossos <a href="/blog/cases" class="text-brand-600 underline hover:text-brand-700">cases</a>, conheça a <a href="/servicos/assessoria-imobiliaria" class="text-brand-600 underline hover:text-brand-700">assessoria imobiliária</a> ou explore o <a href="/hub/ia-corretores-litoral.html" class="text-brand-600 underline hover:text-brand-700">hub de IA para corretores</a>.</p>
-        </section>
-      </div>
-
-      <nav class="mt-12 border-t border-slate-200 pt-6" aria-label="Navegação do blog">
-        <a href="/blog" class="text-sm font-semibold text-brand-600 hover:text-brand-700">← Voltar para o blog</a>
-      </nav>
+<BaseLayout title="Palavras-chave para o litoral" description="As intenções de busca que geram reservas e vendas no litoral norte de SP — e como usá-las em anúncios e páginas.">
+  <article class="border-b border-slate-200">
+    <div class="container py-16">
+      <p class="eyebrow">SEO</p>
+      <h1 class="mt-2 text-3xl font-semibold tracking-tight">Palavras-chave para o litoral</h1>
+      <p class="mt-4 max-w-2xl text-slate-600">As intenções de busca que geram reservas e vendas no litoral norte de São Paulo.</p>
     </div>
   </article>
 
-  <section class="border-t border-slate-200">
-    <div class="container py-16">
-      <LeadForm />
+  <section class="py-16">
+    <div class="container max-w-3xl space-y-10">
+      <p class="text-slate-600">
+        Quem busca imóvel no litoral norte combina quase sempre três elementos: <strong>o que</strong> procura (casa, apartamento, terreno), <strong>onde</strong> (cidade ou bairro) e <strong>uma característica decisiva</strong> (pé na areia, com piscina, vista para o mar). Anúncios e páginas que reproduzem essa estrutura no título e na descrição aparecem mais — e convertem melhor.
+      </p>
+
+      {grupos.map((grupo) => (
+        <div>
+          <h2 class="text-xl font-semibold">{grupo.titulo}</h2>
+          <ul class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {grupo.termos.map((termo) => (
+              <li class="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">“{termo}”</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      <div class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+        <h2 class="text-lg font-semibold">Como aplicar</h2>
+        <ol class="mt-3 list-decimal space-y-2 pl-5 text-sm text-slate-600">
+          <li>Escolha uma intenção por página ou anúncio — não misture venda e temporada.</li>
+          <li>Use a palavra-chave no título, na primeira frase e na descrição do anúncio.</li>
+          <li>Crie uma página por cidade para cada serviço principal.</li>
+          <li>Meça posições e cliques mensalmente e ajuste os termos com a temporada.</li>
+        </ol>
+        <p class="mt-4 text-sm text-slate-600">Quer uma análise do seu caso? <a href="/contato" class="text-brand-600 underline">Fale com a PraiaDigital</a> ou veja o <a href="/hub/ia-corretores-litoral.html" class="text-brand-600 underline">hub de IA para corretores</a>.</p>
+      </div>
+
+      <p><a href="/blog" class="text-sm text-brand-600 underline">← Voltar ao blog</a></p>
     </div>
   </section>
 </BaseLayout>

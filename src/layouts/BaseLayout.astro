@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import '../styles/global.css';
 
 const props = Astro.props;
 
@@ -13,7 +14,7 @@ const description = props.description ?? 'Gestão de aluguel temporada, zeladori
 ---
 
 <BaseHead
-  site="https://praia.digital"
+  site="https://praiadigital.github.io"
   title={title}
   description={description}
   image={props.image}

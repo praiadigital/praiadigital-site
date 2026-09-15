@@ -7,7 +7,7 @@ Site estático em Astro para [PraiaDigital](https://praia.digital), com foco em 
 - Astro 5
 - Tailwind CSS 4
 - TypeScript
-- Vercel/Netlify ready
+- GitHub Pages (deploy via Actions); Vercel/Netlify ready
 
 ## Instalação
 
@@ -28,34 +28,43 @@ npm run dev
 
 ```
 src/
-  components/   # Header, Footer, BaseHead, LeadForm
-  layouts/      # BaseLayout
-  pages/        # Rotas do site
-  styles/       # global.css
-  data/         # cidades.ts
+  components/    # Header, Footer, BaseHead, LeadForm
+  layouts/       # BaseLayout (skip link, head slot, header/footer)
+  pages/         # Rotas do site
+    blog/        # Index + posts (guias, SEO, IA, cases)
+    servicos/    # Index + gestão, assessoria, zeladoria
+    hub/         # Hub de IA para corretores
+    404.astro    # Página de erro amigável
+  styles/        # global.css
+  data/          # cidades.ts
 public/
+  sitemap.xml    # Sitemap estático de todas as páginas
+  robots.txt     # Allow all + referência ao sitemap
+  favicon.svg / favicon.ico / apple-touch-icon.png
+  img/og-default.png
 ```
 
 ## Estratégia de interlinks
 
-- Header/Footer: navegação global para serviços, blog, FAQ, contato
-- Home: seção de serviços + links contextuais em "Por que PraiaDigital"
-- Páginas de serviço: seção "Serviços relacionados" cruzando as 3 páginas + cases/FAQ/contato
-- Blog: index → cases e serviços; cases → serviços correspondentes
+- Header/Footer: navegação global para serviços, blog, hub, FAQ, contato
+- Home: seções de serviços, cidades e últimos conteúdos com links contextuais
+- Páginas de serviço: seção "Serviços relacionados" cruzando as 3 páginas + cases
+- Blog: index → posts e cases; posts → serviços correspondentes, hub e outros posts
+- Hub: leituras relacionadas → posts e cases
 - Sobre/Contato/FAQ: links contextuais nos textos + grade de serviços
 
 ## Deploy
 
+- GitHub Pages: push em `main` dispara `.github/workflows/deploy.yml`
 - Vercel: `vercel --prod`
 - Netlify: `netlify deploy --prod`
-- Branch: `main`
 
 ## Validação pós-deploy
 
 ```bash
 curl -I https://praia.digital/
-curl -I https://praia.digital/?nocache=1
 curl -I https://praia.digital/hub/ia-corretores-litoral.html
+curl -I https://praia.digital/sitemap.xml
 ```
 
 Valide HTTP 200, `cache-control` e OG tags com `curl` + ferramentas de SEO.
@@ -67,3 +76,4 @@ Valide HTTP 200, `cache-control` e OG tags com `curl` + ferramentas de SEO.
 - [ ] Meta description, canonical e OG por página
 - [ ] Formulário de lead apontando para WhatsApp
 - [ ] LGPD em `/privacidade`
+- [ ] Sitemap e robots acessíveis

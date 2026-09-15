@@ -4,6 +4,8 @@ import LeadForm from '../../components/LeadForm.astro';
 
 const title = 'Como preparar o imóvel para temporada';
 const description = 'Checklist completo para preparar seu imóvel no litoral norte de SP para aluguel por temporada: limpeza, manutenção, enxoval e apresentação.';
+const publishedTime = '2026-09-08';
+const modifiedTime = '2026-09-15';
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -11,6 +13,8 @@ const articleSchema = {
   headline: title,
   description,
   inLanguage: 'pt-BR',
+  datePublished: publishedTime,
+  dateModified: modifiedTime,
   author: { '@type': 'Organization', name: 'PraiaDigital', url: 'https://praia.digital' },
   publisher: { '@type': 'Organization', name: 'PraiaDigital', url: 'https://praia.digital' },
   mainEntityOfPage: 'https://praia.digital/blog/como-preparar-imovel-temporada',
@@ -24,6 +28,7 @@ const articleSchema = {
     <div class="container max-w-3xl">
       <p class="text-sm font-semibold text-brand-600">Guia do proprietário</p>
       <h1 class="mt-4 text-4xl font-semibold tracking-tight">{title}</h1>
+      <p class="mt-2 text-sm text-slate-500">Publicado em <time datetime={publishedTime}>8 de setembro de 2026</time></p>
       <p class="mt-4 text-lg text-slate-600">{description}</p>
 
       <div class="mt-10 space-y-8 text-slate-600">

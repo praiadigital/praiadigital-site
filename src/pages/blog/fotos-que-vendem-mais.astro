@@ -2,57 +2,73 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LeadForm from '../../components/LeadForm.astro';
 
-const title = 'Fotos que vendem mais: direção de arte para anúncios de temporada';
-const description = 'Como fotografar seu imóvel de temporada no litoral para converter mais reservas: luz, ângulos, sequência de fotos e erros comuns a evitar.';
-const published = '2026-09-15';
+const title = 'Fotos que vendem mais';
+const description = 'Direção de arte simples para anúncios de temporada: como fotografar seu imóvel no litoral para atrair mais reservas e visitas.';
+const publishedTime = '2026-09-10';
+const modifiedTime = '2026-09-15';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  inLanguage: 'pt-BR',
+  datePublished: publishedTime,
+  dateModified: modifiedTime,
+  author: { '@type': 'Organization', name: 'PraiaDigital', url: 'https://praia.digital' },
+  publisher: { '@type': 'Organization', name: 'PraiaDigital', url: 'https://praia.digital' },
+  mainEntityOfPage: 'https://praia.digital/blog/fotos-que-vendem-mais',
+};
 ---
 
-<BaseLayout title={title} description={description} publishedTime={published} modifiedTime={published}>
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: title,
-    description,
-    datePublished: published,
-    dateModified: published,
-    inLanguage: "pt-BR",
-    author: { "@type": "Organization", name: "PraiaDigital", url: "https://praia.digital" },
-    publisher: { "@type": "Organization", name: "PraiaDigital", url: "https://praia.digital" }
-  })} />
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(articleSchema)} />
 
-  <section class="border-b border-slate-200 bg-slate-50">
-    <div class="container py-16">
-      <div class="max-w-3xl">
-        <p class="text-sm font-semibold text-brand-600">Marketing · Anúncios</p>
-        <h1 class="mt-4 text-4xl font-semibold tracking-tight">{title}</h1>
-        <p class="mt-4 text-lg text-slate-600">{description}</p>
+  <article class="py-16">
+    <div class="container max-w-3xl">
+      <p class="text-sm font-semibold text-brand-600">Marketing imobiliário</p>
+      <h1 class="mt-4 text-4xl font-semibold tracking-tight">{title}</h1>
+      <p class="mt-2 text-sm text-slate-500">Publicado em <time datetime={publishedTime}>10 de setembro de 2026</time></p>
+      <p class="mt-4 text-lg text-slate-600">{description}</p>
+
+      <div class="mt-10 space-y-8 text-slate-600">
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">Por que as fotos decidem a reserva</h2>
+          <p class="mt-3">No scroll de um portal ou do Instagram, o hóspede decide em segundos. Imóveis com fotos profissionais recebem mais cliques, mais mensagens e fecham reservas com diárias maiores. A boa notícia: com técnica simples e um celular recente, dá para chegar muito perto desse padrão.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">Checklist de produção</h2>
+          <ul class="mt-3 list-disc space-y-2 pl-6">
+            <li><strong class="text-slate-900">Horário certo:</strong> fotografe entre 9h e 11h ou no fim da tarde, com luz natural abundante;</li>
+            <li><strong class="text-slate-900">Ordem dos ambientes:</strong> comece pela melhor vista ou cômodo — as 3 primeiras fotos carregam o anúncio;</li>
+            <li><strong class="text-slate-900">Horizontal, sempre:</strong> portais e buscadores priorizam fotos em paisagem;</li>
+            <li><strong class="text-slate-900">Despersonalize:</strong> retire objetos pessoais, imãs de geladeira e fios aparentes;</li>
+            <li><strong class="text-slate-900">Mostre o diferencial:</strong> varanda com vista, churrasqueira, proximidade da praia.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-900">Erros que custam reservas</h2>
+          <ul class="mt-3 list-disc space-y-2 pl-6">
+            <li>Fotos escuras ou contra a janela (estoura a luz e esconde o ambiente);</li>
+            <li>Foto da fachada como primeira imagem quando o diferencial é o interior;</li>
+            <li>Poucas fotos: anúncios com menos de 10 imagens transmitem desconfiança;</li>
+            <li>Imagens desatualizadas que geram reclamação no check-in.</li>
+          </ul>
+        </section>
+
+        <section class="rounded-xl border border-slate-200 bg-slate-50 p-6">
+          <h2 class="text-xl font-semibold text-slate-900">Imóvel pronto, mas sem tempo para anunciar?</h2>
+          <p class="mt-2">Nossa <a href="/servicos/gestao-aluguel-temporada" class="text-brand-600 underline hover:text-brand-700">gestão de temporada</a> cuida de fotos, anúncio, reservas e hóspedes. Antes, confira o guia de <a href="/blog/como-preparar-imovel-temporada" class="text-brand-600 underline hover:text-brand-700">preparação do imóvel</a>.</p>
+        </section>
       </div>
-    </div>
-  </section>
 
-  <section class="py-16">
-    <div class="container">
-      <article class="max-w-3xl space-y-8 text-slate-600">
-        <div>
-          <h2 class="text-xl font-semibold text-slate-900">Luz natural é seu melhor equipamento</h2>
-          <p class="mt-2 text-sm">Fotografe entre 9h e 11h ou no fim da tarde, com cortinas abertas e luzes acesas. No litoral, o sol forte do meio-dia estoura janelas e cria contraste excessivo.</p>
-        </div>
-        <div>
-          <h2 class="text-xl font-semibold text-slate-900">A sequência certa das fotos</h2>
-          <p class="mt-2 text-sm">Comece pela melhor foto (fachada ou vista), depois área social, cozinha, quartos e banheiros. Os 5 primeiros thumbnails decidem se o hóspede clica ou passa para o próximo anúncio.</p>
-        </div>
-        <div>
-          <h2 class="text-xl font-semibold text-slate-900">Arrume antes de clicar</h2>
-          <p class="mt-2 text-sm">Camas feitas, toalhas dobradas, bancadas livres e almofadas alinhadas. Pequenos detalhes comunicam cuidado — e cuidado converte. Se o imóvel está parado, nossa <a href="/servicos/zeladoria-manutencao" class="text-brand-600 underline hover:text-brand-700">zeladoria</a> deixa tudo pronto para o ensaio.</p>
-        </div>
-        <div>
-          <h2 class="text-xl font-semibold text-slate-900">Erros que derrubam conversão</h2>
-          <p class="mt-2 text-sm">Fotos escuras, tortas, com dedo na lente ou mostrando objetos pessoais. Evite também fotos antigas que não representam o estado atual do imóvel — isso gera avaliações ruins depois.</p>
-        </div>
-        <p class="text-sm">Combine boas fotos com uma <a href="/servicos/gestao-aluguel-temporada" class="text-brand-600 underline hover:text-brand-700">gestão de temporada</a> profissional e veja a diferença nos <a href="/blog/cases" class="text-brand-600 underline hover:text-brand-700">resultados reais</a>.</p>
-      </article>
+      <nav class="mt-12 border-t border-slate-200 pt-6" aria-label="Navegação do blog">
+        <a href="/blog" class="text-sm font-semibold text-brand-600 hover:text-brand-700">← Voltar para o blog</a>
+      </nav>
     </div>
-  </section>
+  </article>
 
   <section class="border-t border-slate-200">
     <div class="container py-16">

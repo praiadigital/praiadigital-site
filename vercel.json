@@ -1,12 +1,14 @@
 {
   "cleanUrls": false,
+  "redirects": [
+    { "source": "/hub/ia-corretores-litoral", "destination": "/hub/ia-corretores-litoral.html", "permanent": true },
+    { "source": "/hub/ia-corretores-litoral/", "destination": "/hub/ia-corretores-litoral.html", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/blog.html", "destination": "/blog.html" },
     { "source": "/blog/cases.html", "destination": "/blog/cases.html" },
     { "source": "/contato.html", "destination": "/contato.html" },
     { "source": "/faq.html", "destination": "/faq.html" },
-    { "source": "/hub/ia-corretores-litoral.html", "destination": "/hub/ia-corretores-litoral" },
-    { "source": "/hub/ia-corretores-litoral/", "destination": "/hub/ia-corretores-litoral" },
     { "source": "/privacidade.html", "destination": "/privacidade.html" },
     { "source": "/servicos/assessoria-imobiliaria.html", "destination": "/servicos/assessoria-imobiliaria.html" },
     { "source": "/servicos/gestao-aluguel-temporada.html", "destination": "/servicos/gestao-aluguel-temporada.html" },

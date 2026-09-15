@@ -12,7 +12,7 @@ const {
 
 const canonicalURL = canonical ?? new URL(Astro.url.pathname, site).toString();
 const ogImage = image ?? `${site}/img/og-default.png`;
-const ogImageAlt = 'Praia Digital — IA que gera leads e vendas para imobiliárias no litoral';
+const ogImageAlt = 'Praia Digital – IA que gera leads e vendas para imobiliárias no litoral';
 ---
 
 <!doctype html>
@@ -21,6 +21,7 @@ const ogImageAlt = 'Praia Digital — IA que gera leads e vendas para imobiliár
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Primary Meta -->
     <title>{title}</title>

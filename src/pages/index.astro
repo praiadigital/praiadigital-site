@@ -1,14 +1,50 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LeadForm from '../components/LeadForm.astro';
-import { cidades } from '../data/cidades.ts';
+import { cidades } from '../data/cidades';
+
+const whatsappUrl = 'https://wa.me/5511954346288';
+
+const stats = [
+  { value: '+170', label: 'Leads qualificados gerados para uma imobiliária parceira em 30 dias' },
+  { value: '3.2x', label: 'Aumento médio em visitas orgânicas locais' },
+  { value: '68%', label: 'Das conversões vêm de conteúdo + WhatsApp' },
+];
+
+const servicos = [
+  {
+    href: '/servicos/gestao-aluguel-temporada',
+    title: 'Gestão de aluguel por temporada',
+    text: 'Anúncios, reservas, precificação dinâmica e experiência do hóspede.',
+    icon: 'M3 12l9-9 9 9M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10',
+  },
+  {
+    href: '/servicos/zeladoria-manutencao',
+    title: 'Zeladoria e manutenção',
+    text: 'Inspeções, manutenção preventiva e atendimento emergencial local.',
+    icon: 'M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4L14 13l-3-3 3.7-3.7z',
+  },
+  {
+    href: '/servicos/assessoria-imobiliaria',
+    title: 'Assessoria imobiliária',
+    text: 'Avaliação, documentação e negociação para vender com segurança.',
+    icon: 'M9 12l2 2 4-4M12 3l7 4v5c0 4.4-3 8.4-7 9-4-.6-7-4.6-7-9V7l7-4z',
+  },
+];
+
+const passos = [
+  { num: '1', title: 'Diagnóstico gratuito', text: 'Analisamos seu imóvel, seu mercado e seus canais atuais em até 1 dia útil.' },
+  { num: '2', title: 'Plano de ação local', text: 'Conteúdo, anúncios e automações alinhados com a demanda da sua cidade.' },
+  { num: '3', title: 'Execução e conversão', text: 'Publicamos, medimos e convertemos interesse em reservas, visitas e vendas.' },
+];
 ---
 
 <BaseLayout title="Inbound Marketing para imóveis no litoral" description="PraiaDigital ajuda imobiliárias e proprietários do litoral norte de SP a captar mais leads qualificados com conteúdo, automação e conversão.">
-  <section class="border-b border-slate-200 bg-slate-50">
-    <div class="container py-16 md:py-24">
-      <div class="max-w-2xl">
-        <p class="text-sm font-semibold text-brand-600">Imóveis no litoral norte de SP</p>
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-brand-50 via-white to-white">
+    <div class="container py-20 md:py-28">
+      <div class="max-w-2xl animate-fade-up">
+        <p class="eyebrow">Imóveis no litoral norte de SP</p>
         <h1 class="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
           Seu imóvel no litoral com agenda cheia e anúncio que vende
         </h1>
@@ -16,61 +52,96 @@ import { cidades } from '../data/cidades.ts';
           Combinamos conteúdo local, IA e gestão profissional para gerar reservas, visitas e vendas de imóveis de temporada e venda no litoral norte de São Paulo.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <a href="https://wa.me/5511954346288" target="_blank" rel="noopener" class="rounded-md bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-brand-700">Quero mais reservas e vendas</a>
-          <a href="/servicos/gestao-aluguel-temporada" class="rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:border-slate-400">Conhecer os serviços</a>
+          <a href={whatsappUrl} target="_blank" rel="noopener" class="btn-primary">Quero mais reservas e vendas</a>
+          <a href="/servicos" class="btn-secondary">Conhecer os serviços</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Resultados -->
   <section class="border-b border-slate-200">
     <div class="container py-16">
       <h2 class="text-2xl font-semibold">Resultados em números</h2>
       <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
-        <div class="rounded-xl border border-slate-200 p-6">
-          <p class="text-3xl font-semibold text-brand-600">+170</p>
-          <p class="mt-2 text-sm text-slate-600">Leads qualificados gerados para uma imobiliária parceira em 30 dias</p>
-        </div>
-        <div class="rounded-xl border border-slate-200 p-6">
-          <p class="text-3xl font-semibold text-brand-600">3.2x</p>
-          <p class="mt-2 text-sm text-slate-600">Aumento médio em visitas orgânicas locais</p>
-        </div>
-        <div class="rounded-xl border border-slate-200 p-6">
-          <p class="text-3xl font-semibold text-brand-600">68%</p>
-          <p class="mt-2 text-sm text-slate-600">Das conversões vêm de conteúdo + WhatsApp</p>
-        </div>
+        {stats.map((stat) => (
+          <div class="card">
+            <p class="text-3xl font-semibold text-brand-600">{stat.value}</p>
+            <p class="mt-2 text-sm text-slate-600">{stat.label}</p>
+          </div>
+        ))}
       </div>
       <p class="mt-4 text-sm text-slate-500">Resultados de cases reais — <a href="/blog/cases" class="underline hover:text-brand-600">veja os detalhes</a>.</p>
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="container">
-      <h2 class="text-2xl font-semibold">Por que PraiaDigital</h2>
-      <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
-        <article class="rounded-xl border border-slate-200 p-6">
-          <h3 class="text-base font-semibold">Conteúdo local</h3>
-          <p class="mt-2 text-sm text-slate-600">Artigos, guias e páginas alinhadas com intenção de busca no litoral.</p>
-        </article>
-        <article class="rounded-xl border border-slate-200 p-6">
-          <h3 class="text-base font-semibold">Conversão clara</h3>
-          <p class="mt-2 text-sm text-slate-600">CTAs para WhatsApp e formulários com copy direto ao proprietário.</p>
-        </article>
-        <article class="rounded-xl border border-slate-200 p-6">
-          <h3 class="text-base font-semibold">Performance</h3>
-          <p class="mt-2 text-sm text-slate-600">Site e anúncios que carregam em segundos e aparecem no Google quando o cliente busca "imóvel em Ubatuba".</p>
-        </article>
+  <!-- Serviços -->
+  <section class="border-b border-slate-200 bg-slate-50">
+    <div class="container py-16">
+      <p class="eyebrow">O que fazemos</p>
+      <h2 class="mt-2 text-2xl font-semibold">Nossos serviços</h2>
+      <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+        {servicos.map((s) => (
+          <a href={s.href} class="card card-hover no-underline hover:no-underline">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-brand-600" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d={s.icon}/></svg>
+            </span>
+            <h3 class="mt-4 text-base font-semibold text-slate-900">{s.title}</h3>
+            <p class="mt-2 text-sm text-slate-600">{s.text}</p>
+            <p class="mt-3 text-sm font-semibold text-brand-600">Saiba mais →</p>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
+  <!-- Como funciona -->
+  <section class="border-b border-slate-200">
+    <div class="container py-16">
+      <p class="eyebrow">Simples e transparente</p>
+      <h2 class="mt-2 text-2xl font-semibold">Como funciona</h2>
+      <ol class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
+        {passos.map((passo) => (
+          <li class="card">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-600 text-sm font-semibold text-white" aria-hidden="true">{passo.num}</span>
+            <h3 class="mt-3 text-base font-semibold">{passo.title}</h3>
+            <p class="mt-2 text-sm text-slate-600">{passo.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Por que -->
+  <section class="border-b border-slate-200 bg-slate-50">
+    <div class="container py-16">
+      <h2 class="text-2xl font-semibold">Por que PraiaDigital</h2>
+      <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <article class="card">
+          <h3 class="text-base font-semibold">Conteúdo local</h3>
+          <p class="mt-2 text-sm text-slate-600">Artigos, guias e páginas alinhados com intenção de busca no litoral. <a href="/blog" class="text-brand-600 underline hover:text-brand-700">Ver blog</a>.</p>
+        </article>
+        <article class="card">
+          <h3 class="text-base font-semibold">Conversão clara</h3>
+          <p class="mt-2 text-sm text-slate-600">CTAs para WhatsApp e formulários com copy direto ao proprietário. <a href="/contato" class="text-brand-600 underline hover:text-brand-700">Fale conosco</a>.</p>
+        </article>
+        <article class="card">
+          <h3 class="text-base font-semibold">Performance</h3>
+          <p class="mt-2 text-sm text-slate-600">Site e anúncios que carregam em segundos e aparecem no Google quando o cliente busca “imóvel em Ubatuba”. <a href="/blog/cases" class="text-brand-600 underline hover:text-brand-700">Ver cases</a>.</p>
+        </article>
+      </div>
+      <p class="mt-6 text-sm text-slate-600">Dúvidas? Consulte nosso <a href="/faq" class="text-brand-600 underline hover:text-brand-700">FAQ</a> ou conheça <a href="/sobre" class="text-brand-600 underline hover:text-brand-700">quem somos</a>.</p>
+    </div>
+  </section>
+
+  <!-- Cidades -->
   <section class="border-b border-slate-200">
     <div class="container py-16">
       <h2 class="text-2xl font-semibold">Atuação local, cidade por cidade</h2>
       <p class="mt-2 text-sm text-slate-600">Conteúdo e automações alinhados com cada mercado do litoral norte.</p>
       <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {cidades.map((cidade) => (
-          <a href={`/hub/ia-corretores-litoral.html?cidade=${cidade.slug}`} class="rounded-xl border border-slate-200 p-5 hover:border-slate-300">
+          <a href={`/hub/ia-corretores-litoral.html?cidade=${cidade.slug}`} class="card card-hover no-underline hover:no-underline">
             <p class="text-sm font-semibold text-brand-600">Litoral {cidade.regiao}</p>
             <p class="mt-1 text-base font-semibold text-slate-900">{cidade.nome}</p>
             <p class="mt-2 text-sm text-slate-600">Estratégias de IA e conteúdo para o mercado de {cidade.nome}.</p>
@@ -80,36 +151,8 @@ import { cidades } from '../data/cidades.ts';
     </div>
   </section>
 
-  <section class="border-t border-slate-200 bg-slate-50">
-    <div class="container py-16">
-      <h2 class="text-2xl font-semibold">Últimos conteúdos</h2>
-      <p class="mt-2 text-sm text-slate-600">Guias práticos para proprietários e corretores do litoral.</p>
-      <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
-        <a href="/blog/como-preparar-imovel-temporada" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300">
-          <p class="text-sm font-semibold text-brand-600">Guia</p>
-          <p class="mt-1 text-base font-semibold text-slate-900">Como preparar o imóvel para temporada</p>
-          <p class="mt-2 text-sm text-slate-600">Checklist de limpeza, manutenção e apresentação.</p>
-        </a>
-        <a href="/blog/palavras-chave-seo-litoral" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300">
-          <p class="text-sm font-semibold text-brand-600">SEO</p>
-          <p class="mt-1 text-base font-semibold text-slate-900">Palavras-chave para o litoral</p>
-          <p class="mt-2 text-sm text-slate-600">As buscas que geram reservas e vendas no litoral norte.</p>
-        </a>
-        <a href="/blog/ia-para-corretores-litoral" class="rounded-xl border border-slate-200 bg-white p-5 hover:border-slate-300">
-          <p class="text-sm font-semibold text-brand-600">IA</p>
-          <p class="mt-1 text-base font-semibold text-slate-900">IA para corretores do litoral</p>
-          <p class="mt-2 text-sm text-slate-600">Atendimento, conteúdo e follow-up com inteligência artificial.</p>
-        </a>
-      </div>
-      <div class="mt-6 flex flex-wrap gap-4">
-        <a href="/blog" class="text-sm font-semibold text-brand-600 hover:text-brand-700">Ver todos os conteúdos →</a>
-        <a href="/hub/ia-corretores-litoral.html" class="text-sm font-semibold text-brand-600 hover:text-brand-700">Explorar o hub de IA →</a>
-        <a href="/servicos" class="text-sm font-semibold text-brand-600 hover:text-brand-700">Conhecer todos os serviços →</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="border-t border-slate-200">
+  <!-- Lead form -->
+  <section class="bg-slate-50">
     <div class="container py-16">
       <LeadForm />
     </div>

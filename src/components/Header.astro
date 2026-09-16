@@ -123,30 +123,30 @@ function isActive(href: string): boolean {
   const button = document.getElementById('site-menu-button');
   const panel = document.getElementById('site-menu-panel');
 
-  function toggleMenu(open?: boolean) {
-    const isOpen = open ?? panel?.classList.contains('hidden') === false;
-    const next = open ?? panel?.classList.contains('hidden');
-    panel?.classList.toggle('hidden', !next);
-    button?.setAttribute('aria-expanded', String(next));
+  function setMenu(open: boolean) {
+    if (!panel || !button) return;
+    panel.classList.toggle('hidden', !open);
+    button.setAttribute('aria-expanded', String(open));
   }
 
+  // Abre/fecha ao clicar no botão
   button?.addEventListener('click', (e) => {
     e.stopPropagation();
-    toggleMenu();
+    setMenu(panel?.classList.contains('hidden') ?? false);
   });
 
-  // Fecha ao clicar fora
+  // Fecha ao clicar fora do menu
   document.addEventListener('click', (e) => {
-    if (wrapper && !wrapper.contains(e.target as Node)) toggleMenu(false);
+    if (wrapper && !wrapper.contains(e.target as Node)) setMenu(false);
   });
 
   // Fecha com Escape
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') toggleMenu(false);
+    if (e.key === 'Escape') setMenu(false);
   });
 
   // Fecha ao clicar em um link (navegação)
   panel?.addEventListener('click', (e) => {
-    if ((e.target as HTMLElement).closest('a')) toggleMenu(false);
+    if ((e.target as HTMLElement).closest('a')) setMenu(false);
   });
 </script>

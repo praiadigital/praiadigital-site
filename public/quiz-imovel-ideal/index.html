@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz: Imóvel Ideal no Litoral — Praia Digital</title>
+<meta name="description" content="Responda 4 perguntas e descubra o perfil de imóvel ideal para você no litoral paulista.">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,sans-serif}
+  body{background:#f0f9ff;color:#0f172a;min-height:100vh}
+  header{background:linear-gradient(135deg,#0077B6,#00B4D8);color:#fff;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+  header a{color:#fff;text-decoration:none;font-weight:700}.logo{font-size:1.2rem}
+  main{max-width:640px;margin:2rem auto;padding:0 1rem}
+  .card{background:#fff;border-radius:16px;padding:1.75rem;box-shadow:0 4px 24px rgba(0,60,100,.08)}
+  h1{font-size:1.5rem;color:#0077B6}.sub{color:#64748b;margin:.3rem 0 1.25rem;font-size:.95rem}
+  .step{display:none}.step.active{display:block}
+  .q{font-weight:700;margin-bottom:.8rem}
+  .opt{display:block;width:100%;text-align:left;padding:.85rem 1rem;margin-bottom:.5rem;border:1px solid #cbd5e1;border-radius:12px;background:#fff;cursor:pointer;font-size:1rem}
+  .opt:hover{border-color:#0077B6;background:#f0f9ff}
+  .barra{height:6px;background:#e2e8f0;border-radius:99px;margin-bottom:1.25rem;overflow:hidden}
+  .barra div{height:100%;background:linear-gradient(90deg,#0077B6,#00B4D8);transition:width .3s}
+  #res{display:none}
+  .perfil{background:#ecfeff;border:1px solid #67e8f9;border-radius:14px;padding:1.25rem;text-align:center}
+  .perfil b{font-size:1.15rem;color:#0369a1}
+  .ctas{display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap;justify-content:center}
+  .cta{padding:.7rem 1.2rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.9rem;background:#0077B6;color:#fff}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="https://praia.digital/">🏖️ Praia Digital</a>
+  <a href="https://praia.digital/apps">Rede de apps →</a>
+</header>
+<main>
+  <div class="card">
+    <h1>🎯 Quiz: Seu Imóvel Ideal no Litoral</h1>
+    <p class="sub">4 perguntas rápidas, 1 recomendação personalizada.</p>
+    <div class="barra"><div id="bar" style="width:25%"></div></div>
+    <div class="step active" data-s="0">
+      <p class="q">1. Qual seu objetivo principal?</p>
+      <button class="opt" onclick="r(0,'morar')">🏠 Morar com a família</button>
+      <button class="opt" onclick="r(0,'temporada')">📈 Renda com temporada</button>
+      <button class="opt" onclick="r(0,'valorizar')">💎 Valorização e revenda</button>
+    </div>
+    <div class="step" data-s="1">
+      <p class="q">2. Orçamento total?</p>
+      <button class="opt" onclick="r(1,'b')">Até R$ 400 mil</button>
+      <button class="opt" onclick="r(1,'m')">R$ 400–800 mil</button>
+      <button class="opt" onclick="r(1,'a')">Acima de R$ 800 mil</button>
+    </div>
+    <div class="step" data-s="2">
+      <p class="q">3. Preferência de estilo?</p>
+      <button class="opt" onclick="r(2,'apto')">🏢 Apartamento (praticidade)</button>
+      <button class="opt" onclick="r(2,'casa')">🏡 Casa (espaço e quintal)</button>
+    </div>
+    <div class="step" data-s="3">
+      <p class="q">4. O que é indispensável?</p>
+      <button class="opt" onclick="r(3,'perto')">🚶 Perto da praia</button>
+      <button class="opt" onclick="r(3,'vista')">🌊 Vista para o mar</button>
+      <button class="opt" onclick="r(3,'condominio')">🌴 Condomínio com lazer</button>
+    </div>
+    <div id="res">
+      <div class="perfil">
+        <p>Seu perfil ideal:</p>
+        <b id="perfilNome"></b>
+        <p id="perfilDesc" style="margin-top:.5rem;font-size:.95rem"></p>
+        <div class="ctas">
+          <a class="cta" id="cta1" href="#">Estimar valor →</a>
+          <a class="cta" id="cta2" href="#" style="background:#25d366">Falar com especialista</a>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:1rem"><a href="javascript:location.reload()" style="color:#64748b;font-size:.85rem">Refazer quiz</a></p>
+    </div>
+  </div>
+</main>
+<script>
+var resp_={};
+function r(s,v){
+  resp_[s]=v;
+  document.querySelectorAll('.step').forEach(function(e){e.classList.remove('active')});
+  var n=document.querySelector('.step[data-s="'+(s+1)+'"]');
+  document.getElementById('bar').style.width=((s+2)/4*100)+'%';
+  if(n){n.classList.add('active');return;}
+  var nome,desc;
+  if(resp_[0]==='temporada'){nome='Apartamento compacto perto da praia';desc='Alta rotatividade de hóspedes, gestão simples e diárias fortes. Cidades como Praia Grande e Guarujá oferecem ocupação acima de 55%.';}
+  else if(resp_[0]==='valorizar'){nome='Casa em condomínio em cidade emergente';desc='Bertioga e Peruíbe lideram a valorização do litoral (12–14%/ano) com lotes e casas ainda acessíveis.';}
+  else if(resp_[1]==='b'){nome='Apartamento de 2 quartos em Mongaguá ou Itanhaém';desc='Entrada acessível, bom para primeiro imóvel, com MCMV e FGTS ao seu favor.';}
+  else{nome='Apartamento familiar em Santos ou Guarujá';desc='Infraestrutura completa, escolas e mercado aquecido — ideal para morar bem no litoral.';}
+  document.getElementById('perfilNome').textContent=nome;
+  document.getElementById('perfilDesc').textContent=desc;
+  document.getElementById('cta1').href='https://praia.digital/avaliador-imoveis';
+  document.getElementById('cta2').href='https://wa.me/5511954346288?text='+encodeURIComponent('Fiz o quiz e meu perfil é: '+nome);
+  document.getElementById('res').style.display='block';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist Mudança para o Litoral — Praia Digital</title>
+<meta name="description" content="Checklist completo para quem vai se mudar para o litoral paulista: documentos, custos, escolas e dicas locais.">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,sans-serif}
+  body{background:#f0f9ff;color:#0f172a;min-height:100vh}
+  header{background:linear-gradient(135deg,#0077B6,#00B4D8);color:#fff;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+  header a{color:#fff;text-decoration:none;font-weight:700}.logo{font-size:1.2rem}
+  main{max-width:680px;margin:2rem auto;padding:0 1rem}
+  .card{background:#fff;border-radius:16px;padding:1.75rem;box-shadow:0 4px 24px rgba(0,60,100,.08)}
+  h1{font-size:1.5rem;color:#0077B6}.sub{color:#64748b;margin:.3rem 0 1rem;font-size:.95rem}
+  #barra{height:10px;background:#e2e8f0;border-radius:99px;margin:.8rem 0;overflow:hidden}
+  #barra div{height:100%;background:linear-gradient(90deg,#0077B6,#00B4D8);transition:width .3s}
+  .secao{font-weight:800;color:#0077B6;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;margin:1.1rem 0 .4rem}
+  .chk{display:flex;gap:.6rem;align-items:center;padding:.5rem .6rem;border-radius:8px;cursor:pointer;font-size:.93rem}
+  .chk:hover{background:#f1f5f9}
+  .chk input{width:auto}
+  .chk.done{opacity:.5;text-decoration:line-through}
+  .cta{display:block;text-align:center;background:#25d366;color:#fff;font-weight:800;padding:.9rem;border-radius:12px;text-decoration:none;margin-top:1.3rem}
+  .dica{margin-top:1rem;background:#ecfeff;border:1px solid #67e8f9;border-radius:12px;padding:1rem;font-size:.9rem}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="https://praia.digital/">🏖️ Praia Digital</a>
+  <a href="https://praia.digital/apps">Rede de apps →</a>
+</header>
+<main>
+  <div class="card">
+    <h1>📦 Checklist: Mudança para o Litoral</h1>
+    <p class="sub">Marque cada etapa — o progresso fica salvo no seu navegador.</p>
+    <div id="barra"><div></div></div>
+    <p id="pct" style="font-size:.85rem;color:#64748b;margin-bottom:.5rem">0% completo</p>
+    <div id="lista"></div>
+    <a class="cta" href="https://wa.me/5511954346288?text=Estou%20me%20mudando%20para%20o%20litoral%20e%20preciso%20de%20ajuda" target="_blank" rel="noopener">Falar com especialista em mudanças →</a>
+    <div class="dica">💰 Planeje os custos na <a href="https://praia.digital/calculadora-custos" style="color:#0077B6;font-weight:700">Calculadora de Custos</a> e compare cidades no <a href="https://praia.digital/guia-litoral/comparador-cidades/" style="color:#0077B6;font-weight:700">Comparador</a>.</div>
+  </div>
+</main>
+<script>
+var secoes={
+  'Antes de decidir':['Visitar a cidade em época de chuva e de alta temporada','Testar o trajeto casa-trabalho em horário de pico','Pesquisar escolas e postos de saúde do bairro','Comparar custo de vida (mercado, condomínio, IPTU)'],
+  'Compra do imóvel':['Verificar documentação e certidões do imóvel','Simular financiamento e elegibilidade FGTS','Calcular ITBI e custos de cartório','Vistoria do imóvel com especialista'],
+  'Logística da mudança':['Contratar mudança com seguro','Transferir água, luz e internet','Atualizar endereço em bancos e cadastros','Conhecer vizinhos e regras do condomínio'],
+  'Depois de chegar':['Registrar ocorrências da vistoria de entrada','Cadastrar-se no comércio e serviços locais','Explorar praias e trilhas da região no primeiro mês']
+};
+var lista=document.getElementById('lista');
+var salvo={};try{salvo=JSON.parse(localStorage.getItem('pdMudanca')||'{}')}catch(e){}
+var total=0, feitos=0;
+Object.keys(secoes).forEach(function(sec){
+  var h=document.createElement('p');h.className='secao';h.textContent=sec;lista.appendChild(h);
+  secoes[sec].forEach(function(item){
+    total++;
+    var key=sec+'|'+item;
+    var l=document.createElement('label');l.className='chk'+(salvo[key]?' done':'');
+    if(salvo[key])feitos++;
+    var cb=document.createElement('input');cb.type='checkbox';cb.checked=!!salvo[key];
+    cb.onchange=function(){salvo[key]=cb.checked;l.classList.toggle('done',cb.checked);localStorage.setItem('pdMudanca',JSON.stringify(salvo));upd()};
+    l.appendChild(cb);l.appendChild(document.createTextNode(' '+item));
+    lista.appendChild(l);
+  });
+});
+function upd(){
+  var c=lista.querySelectorAll('input:checked').length;
+  document.querySelector('#barra div').style.width=(c/total*100)+'%';
+  document.getElementById('pct').textContent=Math.round(c/total*100)+'% completo';
+}
+upd();
+</script>
+</body>
+</html>
